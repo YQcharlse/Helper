@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:bl_corners_topLeftRadius="@dimen/dp_4"
+        app:bl_corners_topRightRadius="@dimen/dp_4"
+        app:bl_shape="rectangle"
+        app:bl_solid_color="@color/grey_f9f">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_popup_feedback_dis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingStart="@dimen/dp.15"
+            android:paddingTop="@dimen/dp.20"
+            android:paddingEnd="@dimen/dp.15"
+            android:paddingBottom="@dimen/dp.20"
+            android:src="@drawable/ic_popup_bottom_close" />
+
+        <TextView
+            android:id="@+id/tv_popup_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp.20"
+            android:paddingBottom="@dimen/dp.20"
+            android:textColor="@color/black_121"
+            android:textSize="@dimen/sp.20" />
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcy_popup_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+
+</LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.smartgencloud.ui.login.viewmodel.LoginViewModel" />
+
+        <variable
+            name="click"
+            type="com.smartgencloud.ui.login.activity.LoginActivity.LoginClickProxy" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        tools:context=".ui.login.activity.LoginActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.30"
+                android:text="@string/login_welcome"
+                android:textColor="@color/black_121"
+                android:textSize="@dimen/sp.24"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.30"
+                android:onClick="@{()->click.register()}"
+                android:paddingTop="@dimen/dp.5"
+                android:paddingBottom="@dimen/dp.5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_noacc"
+                    android:textColor="@color/black_464"
+                    android:textSize="@dimen/sp.13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_register"
+                    android:textColor="@color/blue_005"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+
+            <com.smartgencloud.app.widget.SettingBar
+                android:id="@+id/set_login_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp.60"
+                android:onClick="@{()->click.area()}"
+                android:paddingVertical="@dimen/dp_10"
+                android:paddingStart="@dimen/dp_10"
+                app:bar_leftText="@string/login_area_cn"
+                app:bar_leftTextColor="@color/black_121"
+                app:bar_leftTextSize="@dimen/sp.16"
+                app:bar_lineVisible="false"
+                app:bar_rightDrawable="@drawable/ic_arrows_right" />
+
+            <View style="@style/HorizontalLineStyle" />
+
+
+            <com.smartgencloud.app.widget.view.RegexEditText
+                android:id="@+id/ret_login_username"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp.25"
+                android:hint="@string/login_input_account"
+                android:text="@={viewModel.userName}"
+                app:regexType="nonnull" />
+
+            <View style="@style/HorizontalLineStyle" />
+
+
+            <com.smartgencloud.app.widget.view.PasswordEditText
+                android:id="@+id/ret_login_password"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp.25"
+                android:hint="@string/login_input_password"
+                android:text="@={viewModel.password}"
+                app:regexType="nonnull" />
+
+            <View style="@style/HorizontalLineStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginEnd="@dimen/dp.20"
+                android:onClick="@{()->click.forget()}"
+                android:padding="@dimen/dp_10"
+                android:text="@string/login_forget_password"
+                android:textColor="@color/black_b34"
+                android:textSize="@dimen/sp_14" />
+
+
+            <Button
+                android:id="@+id/bt_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.30"
+                android:layout_marginTop="@dimen/dp.80"
+                android:layout_marginEnd="@dimen/dp.30"
+                android:background="@drawable/button_round_selector"
+                android:onClick="@{()->click.login()}"
+                android:text="@string/login_login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp.18" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.20"
+                android:layout_marginTop="@dimen/dp.20"
+                android:layout_marginEnd="@dimen/dp.30"
+                android:gravity="center_vertical"
+                android:onClick="@{()->click.protocol()}"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cb_login_protocol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@null"
+                    android:drawableStart="@drawable/checkbox_selector"
+                    android:padding="@dimen/dp_10" />
+
+                <TextView
+                    android:id="@+id/tv_login_protocol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:textColor="@color/black_464"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>
+

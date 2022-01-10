@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="click"
+            type="com.smartgencloud.ui.login.activity.InformationActivity.InforClickProxy" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.login.activity.InformationActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.30"
+                android:text="@string/mine_information"
+                android:textColor="@color/black_121"
+                android:textSize="@dimen/sp.24"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp.45"
+                android:paddingStart="@dimen/dp.30">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_information_avatar"
+                    android:layout_width="@dimen/dp.100"
+                    android:layout_height="@dimen/dp.100"
+                    android:onClick="@{()->click.chose()}"
+                    android:src="@drawable/ic_avatar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:scaleType="centerCrop" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_information_avatar" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp.50"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/dp.30">
+
+                <com.smartgencloud.app.widget.view.RegexEditText
+                    android:id="@+id/et_info_username"
+                    style="@style/EditTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/mine_nick_name"
+                    android:maxLength="10"
+                    app:regexType="nonnull" />
+
+
+                <TextView
+                    android:id="@+id/tv_username_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#4D121E36"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="/10"
+                    android:textColor="#4D121E36"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <View style="@style/HorizontalLineStyle" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.30"
+                android:layout_marginTop="@dimen/dp.140"
+                android:layout_marginEnd="@dimen/dp.30"
+                android:background="@drawable/button_round_selector"
+                android:onClick="@{()->click.submit()}"
+                android:text="@string/mine_finish"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp.18" />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

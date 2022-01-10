@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api 'androidx.core:core-ktx:1.3.2'
+    api 'androidx.appcompat:appcompat:1.3.1'
+    api 'androidx.constraintlayout:constraintlayout:2.1.1'
+    api 'com.google.android.material:material:1.4.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api "androidx.fragment:fragment-ktx:1.3.2"
+    // 协程基础库
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+
+    //lifecycle
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    api "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+    api "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    // viewModel
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    // liveData
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    // 吐司框架：https://github.com/getActivity/ToastUtils
+    api 'com.github.getActivity:ToastUtils:10.0'
+    //XPoup 弹窗
+    api 'com.github.li-xiaojun:XPopup:2.7.2'
+    api 'com.github.li-xiaojun:XPopupExt:0.0.8'
+    //log
+    api "com.github.zhaokaiqiang.klog:library:1.6.0"
+    //启动优化异步加载
+    api "com.github.YummyLau:Anchors:v1.1.4"
+    //状态栏
+    api "com.gyf.immersionbar:immersionbar:3.0.0"
+    api "com.gyf.immersionbar:immersionbar-ktx:3.0.0"
+    //刷新头
+    api "com.scwang.smart:refresh-header-classics:2.0.1"
+    //利用liveData发送消息
+    api 'com.kunminx.arch:unpeek-livedata:7.2.0-beta1'
+    //通过标签直接生成shape，无需再写shape.xml
+    api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.3'
+    //管理界面状态
+    api "com.kingja.loadsir:loadsir:1.3.8"
+    //rxHttp https://github.com/liujingxing/rxhttp
+    api "com.squareup.okhttp3:okhttp:4.9.1"
+    api 'com.github.liujingxing.rxhttp:rxhttp:2.8.2'
+    // 语种切换框架：https://github.com/getActivity/MultiLanguages
+    api 'com.github.getActivity:MultiLanguages:8.0'
+    // 标题栏框架：https://github.com/getActivity/TitleBar
+    api 'com.github.getActivity:TitleBar:9.3'
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    api 'com.github.getActivity:XXPermissions:13.2'
+    // 头条界面适配：
+    api 'me.jessyan:autosize:1.2.1'
+    // tab： https://github.com/angcyo/DslTabLayout
+    api 'com.github.angcyo.DslTablayout:TabLayout:3.0.4'
+    api 'com.github.angcyo.DslTablayout:ViewPager2Delegate:1.4.2'
+    // banner： https://github.com/zhpanvip/BannerViewPager
+    api 'com.github.zhpanvip:bannerviewpager:3.5.4'
+
+
+
+}

@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">helper</string>
+
+    <string name="current_language">跟随系统</string>
+    <string name="Loading">加载中</string>
+
+    <string name="login_welcome">欢迎来到智云平台</string>
+    <string name="login_noacc">还没有账号？</string>
+    <string name="login_register">立即注册</string>
+    <string name="login_input_account">手机/邮箱</string>
+    <string name="login_input_password">请输入密码</string>
+    <string name="login_forget_password">忘记密码</string>
+    <string name="login_login">登录</string>
+    <string name="login_protocol">已阅读并同意用户协议和隐私政策</string>
+
+    <string name="login_area_title">区域</string>
+    <string name="login_area_cn">中国</string>
+    <string name="login_area_hy">海外区域</string>
+
+    <string name="login_code_timing">s后重新获取</string>
+    <string name="login_get_code">获取验证码</string>
+    <string name="register_input_code">请输入验证码</string>
+
+    <string name="login_register_new">新用户注册</string>
+    <string name="register_input_account">请输入手机号/邮箱</string>
+
+    <string name="register_input_newpassword">新登录密码长度6-16位 必须包含英文数字</string>
+    <string name="register_input_againpassword">再次确认</string>
+    <string name="register_login">注册并登录</string>
+
+    <string name="mine_information">完善个人信息</string>
+    <string name="mine_nick_name">请输入用户名</string>
+    <string name="mine_finish">完成</string>
+
+    <string name="bottom_title_frontPage">首页</string>
+    <string name="bottom_title_device">设备</string>
+    <string name="bottom_title_net">官网</string>
+    <string name="bottom_title_user">我的</string>
+
+    <string name="again_exit">再按一次退出程序</string>
+
+
+    <string name="permission_dis">已禁用权限，请手动授予</string>
+
+    <string name="nav_company_map_my_location">我的位置</string>
+
+    <string name="start_first_title">个人信息保护指引</string>
+    <string name="start_first_confir">同意</string>
+    <string name="start_first_cancle">不同意</string>
+    <string name="start_first_context">请充分阅读并理解后，点击下面的按钮以接受我们的服务：
+        以便了解我们收集、使用、共享、存储信息的情况，以及对信息的保护措施。2.摄像头、麦克风、电话、位置及相册（存储）权限均不会默认或强制开启收集信息，
+        以便了解我们收集、使用、共享、存储信息的情况，以及对信息的保护措施。2.摄像头、麦克风、电话、位置及相册（存储）权限均不会默认或强制开启收集信息，
+        以便了解我们收集、使用、共享、存储信息的情况，以及对信息的保护措施。2.摄像头、麦克风、电话、位置及相册（存储）权限均不会默认或强制开启收集信息，
+        您可以拒绝向我们提供上述权限，但如果您拒绝，则相关功能可能会受影响，但不影响您使用住小帮的其他功能。3.在您以非登录状态使用我们的产品或服</string>
+
+
+</resources>

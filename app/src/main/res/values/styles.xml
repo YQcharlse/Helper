@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 默认文本框样式 -->
+    <style name="EditTextStyle">
+        <item name="android:background">@null</item>
+        <item name="android:textSize">@dimen/sp.16</item>
+        <item name="android:textColorHint">@color/grey_4d1</item>
+        <item name="android:textColor">@color/black_121</item>
+        <item name="android:paddingStart">@dimen/dp.30</item>
+        <item name="android:paddingEnd">@dimen/dp.30</item>
+        <item name="android:paddingTop">@dimen/dp.20</item>
+        <item name="android:paddingBottom">@dimen/dp.20</item>
+
+    </style>
+
+    <!-- 默认水平分割线样式 -->
+    <style name="HorizontalLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/grey_e2e</item>
+        <item name="android:layout_marginStart">@dimen/dp.30</item>
+        <item name="android:layout_marginEnd">@dimen/dp.30</item>
+    </style>
+
+    <!-- 主页导航 -->
+    <style name="myNavigationDrawerStyle">
+        <item name="android:textSize">@dimen/sp.12</item>
+    </style>
+
+
+</resources>

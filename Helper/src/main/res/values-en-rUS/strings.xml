@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="helper_loading_net_error">Please Check The Network And Click Retry</string>
+    <string name="helper_loading_net_empty">Click To Try Again</string>
+    <string name="helper_loading_error_tip">Data Acquisition Failed</string>
+    <string name="helper_loading_empty_tip">No Data Temporarily</string>
+
+
+
+    <string name="helper_net_error_no">There is currently no network, please check your network settings</string>
+    <string name="helper_net_error_timeout">Connection timed out, please try again later</string>
+    <string name="helper_net_error_strong">The network is not working well, please try again later!</string>
+    <string name="helper_net_error_http">Http status code is abnormal</string>
+    <string name="helper_net_error_parsing">Data analysis failed, please check whether the data is correct</string>
+    <string name="helper_net_error_err">Request failed, please try again later</string>
+</resources>

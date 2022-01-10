@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <!-- App 样式中引用的颜色 -->
+    <color name="common_primary_color">@color/white</color>
+    <color name="common_primary_dark_color">@color/white</color>
+    <color name="common_accent_color">#0052D9</color>
+    <color name="common_window_background_color">#F9F9F9</color>
+    <color name="common_text_color">#121E36</color>
+    <color name="common_text_hint_color">#121E36</color>
+
+    <color name="grey_f9f">#F9F9F9</color>
+    <color name="grey_1a6">#1A6C7B8A</color>
+    <color name="grey_818">#818CA0</color>
+    <color name="grey_4d1">#4D121E36</color>
+    <color name="grey_e2e">#E2E4EA</color>
+    <color name="grey_1a0">#1a000000</color>
+    <color name="grey_666">#666F83</color>
+
+    <color name="black_121">#121E36</color>
+    <color name="black_464">#464C62</color>
+    <color name="black_b34">#B3464C62</color>
+
+
+    <color name="blue_005">#0052D9</color>
+    <color name="blue_800">#800052d9</color>
+    <color name="blue_0805">#080052d9</color>
+
+
+</resources>
