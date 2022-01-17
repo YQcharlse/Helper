@@ -12,6 +12,6 @@ abstract class BaseInitActivity : AppCompatActivity() {
 
     abstract val layoutId: Int
 
-    var dataBindView :View? = null
+
 
 }

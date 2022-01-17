@@ -32,19 +32,19 @@ class RegisterActivity : BaseActivity<LoginViewModel, ActivityRegisterBinding>()
 
 
         InputTextManager.with(this)
-            .addView(mDataBind.etRegPhone)
-            .addView(mDataBind.cvGetCode)
-            .addView(mDataBind.etRegPassword)
-            .addView(mDataBind.etRegNewPassword)
-            .setMain(mDataBind.btReg)
+            .addView(mBind.etRegPhone)
+            .addView(mBind.cvGetCode)
+            .addView(mBind.etRegPassword)
+            .addView(mBind.etRegNewPassword)
+            .setMain(mBind.btReg)
             .build()
     }
 
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        mDataBind.viewModel = mViewModel
-        mDataBind.click = RegisterClickProxy()
+        mBind.viewModel = mViewModel
+        mBind.click = RegisterClickProxy()
 
 
         val spannable = SpannableStringBuilder(getStringExt(R.string.login_protocol))
@@ -57,7 +57,7 @@ class RegisterActivity : BaseActivity<LoginViewModel, ActivityRegisterBinding>()
             spannable.setSpan(PrivacyAgreement(), 11, 15, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
 
-        mDataBind.tvRegisterProtocol.run {
+        mBind.tvRegisterProtocol.run {
             text = spannable
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
@@ -82,7 +82,7 @@ class RegisterActivity : BaseActivity<LoginViewModel, ActivityRegisterBinding>()
 
         //协议
         fun protocol() {
-            mDataBind.cbRegisterProtocol.isChecked = !mDataBind.cbRegisterProtocol.isChecked
+            mBind.cbRegisterProtocol.isChecked = !mBind.cbRegisterProtocol.isChecked
         }
 
     }

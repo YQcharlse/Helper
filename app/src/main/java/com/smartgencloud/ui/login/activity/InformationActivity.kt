@@ -44,13 +44,13 @@ class InformationActivity : BaseActivity<LoginViewModel, ActivityInformationBind
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        mDataBind.etInfoUsername.addTextChangedListener(object : TextWatcher {
+        mBind.etInfoUsername.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable) {
-                mDataBind.tvUsernameSize.text = s.length.toString()
+                mBind.tvUsernameSize.text = s.length.toString()
             }
         })
 
@@ -138,13 +138,13 @@ class InformationActivity : BaseActivity<LoginViewModel, ActivityInformationBind
                 .load(url)
                 .transform(MultiTransformation(CenterCrop(), CircleCrop()))
                 .placeholder(R.drawable.image_placeholder)
-                .into(mDataBind.ivInformationAvatar)
+                .into(mBind.ivInformationAvatar)
         } else {
             Glide.with(this)
                 .load(url)
                 .transform(MultiTransformation(CenterCrop(), CircleCrop()))
                 .placeholder(R.drawable.image_placeholder)
-                .into(mDataBind.ivInformationAvatar)
+                .into(mBind.ivInformationAvatar)
         }
 
     }

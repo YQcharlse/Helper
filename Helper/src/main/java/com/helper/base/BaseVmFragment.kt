@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import com.kingja.loadsir.core.LoadService
-import com.kingja.loadsir.core.LoadSir
 import com.helper.ext.*
 import com.helper.net.LoadStatusEntity
 import com.helper.net.LoadingDialogEntity
@@ -17,6 +15,8 @@ import com.helper.net.LoadingType
 import com.helper.state.BaseEmptyCallback
 import com.helper.state.BaseErrorCallback
 import com.helper.state.BaseLoadingCallback
+import com.kingja.loadsir.core.LoadService
+import com.kingja.loadsir.core.LoadSir
 
 
 /**
@@ -25,6 +25,8 @@ import com.helper.state.BaseLoadingCallback
  * 描述　:
  */
 abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIView {
+
+    private var dataBindView: View? = null
 
     //界面状态管理者
     lateinit var uiStatusManger: LoadService<*>
@@ -45,6 +47,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
     ): View? {
         isFirst = true
         javaClass.simpleName.logD()
+        dataBindView = initViewDataBind(inflater, container)
         val rootView = if (dataBindView == null) {
             inflater.inflate(layoutId, container, false)
         } else {
@@ -279,5 +282,13 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
 
     override fun dismissLoading(setting: LoadingDialogEntity) {
         dismissLoadingExt()
+    }
+
+
+    /**
+     * 供子类BaseVmDbActivity 初始化 DataBinding ViewBinding操作
+     */
+    open fun initViewDataBind(inflater: LayoutInflater, container: ViewGroup?): View? {
+        return null
     }
 }

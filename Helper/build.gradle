@@ -85,7 +85,7 @@ dependencies {
     api "com.kingja.loadsir:loadsir:1.3.8"
     //rxHttp https://github.com/liujingxing/rxhttp
     api "com.squareup.okhttp3:okhttp:4.9.1"
-    api 'com.github.liujingxing.rxhttp:rxhttp:2.8.2'
+    api 'com.github.liujingxing.rxhttp:rxhttp:2.8.3'
     // 语种切换框架：https://github.com/getActivity/MultiLanguages
     api 'com.github.getActivity:MultiLanguages:8.0'
     // 标题栏框架：https://github.com/getActivity/TitleBar

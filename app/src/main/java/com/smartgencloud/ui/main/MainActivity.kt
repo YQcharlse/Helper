@@ -39,31 +39,31 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        mDataBind.bnMain.itemIconTintList = null
+        mBind.bnMain.itemIconTintList = null
 
-        val menu = mDataBind.bnMain.menu
+        val menu = mBind.bnMain.menu
         menu.getItem(2).isVisible = !mmkv.decodeString(ValueKey.userToken).isNullOrEmpty()
 
-        clearToast(mDataBind.bnMain, ids)
+        clearToast(mBind.bnMain, ids)
 
 
-        mDataBind.vpMain.adapter = MainAdapter(this)
-        mDataBind.vpMain.offscreenPageLimit = mDataBind.vpMain.adapter!!.itemCount
-        mDataBind.vpMain.isUserInputEnabled = false
+        mBind.vpMain.adapter = MainAdapter(this)
+        mBind.vpMain.offscreenPageLimit = mBind.vpMain.adapter!!.itemCount
+        mBind.vpMain.isUserInputEnabled = false
 
-        mDataBind.bnMain.setOnNavigationItemSelectedListener { it ->
+        mBind.bnMain.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.navigationFrontPage -> {
-                    mDataBind.vpMain.setCurrentItem(0, false)
+                    mBind.vpMain.setCurrentItem(0, false)
                 }
                 R.id.navigationProgram -> {
-                    mDataBind.vpMain.setCurrentItem(1, false)
+                    mBind.vpMain.setCurrentItem(1, false)
                 }
                 R.id.navigationProduct -> {
-                    mDataBind.vpMain.setCurrentItem(2, false)
+                    mBind.vpMain.setCurrentItem(2, false)
                 }
                 R.id.navigationUser -> {
-                    mDataBind.vpMain.setCurrentItem(3, false)
+                    mBind.vpMain.setCurrentItem(3, false)
                 }
             }
             true

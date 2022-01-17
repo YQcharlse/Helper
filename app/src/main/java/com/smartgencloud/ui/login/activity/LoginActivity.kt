@@ -30,17 +30,17 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
 
         InputTextManager.with(this)
-            .addView(mDataBind.retLoginPassword)
-            .addView(mDataBind.retLoginUsername)
-            .setMain(mDataBind.btLogin)
+            .addView(mBind.retLoginPassword)
+            .addView(mBind.retLoginUsername)
+            .setMain(mBind.btLogin)
             .build()
 
     }
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        mDataBind.viewModel = mViewModel
-        mDataBind.click = LoginClickProxy()
+        mBind.viewModel = mViewModel
+        mBind.click = LoginClickProxy()
 
 
         val spannable = SpannableStringBuilder(getStringExt(R.string.login_protocol))
@@ -53,7 +53,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
             spannable.setSpan(PrivacyAgreement(), 11, 15, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
 
-        mDataBind.tvLoginProtocol.run {
+        mBind.tvLoginProtocol.run {
             text = spannable
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
@@ -77,7 +77,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
                     this@LoginActivity,
                     getStringExt(R.string.login_area_title), navList
                 ).setOnSelectListener { position, text ->
-                    mDataBind.setLoginArea.leftText = text
+                    mBind.setLoginArea.leftText = text
                 }).show()
 
         }
@@ -98,7 +98,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
         //协议
         fun protocol() {
-            mDataBind.cbLoginProtocol.isChecked = !mDataBind.cbLoginProtocol.isChecked
+            mBind.cbLoginProtocol.isChecked = !mBind.cbLoginProtocol.isChecked
         }
     }
 
