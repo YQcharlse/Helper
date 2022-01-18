@@ -14,12 +14,11 @@ import java.io.StringWriter
  * @Date 2021-11-03
  * 描述　: 打印日志开关，框架是否打印请求日志、输出Log日志 默认为 true 打印数据
  */
-var mvvmHelperLog: Boolean = true
+var SmartGenHelperLog: Boolean = true
     set(value) {
         field = value
         XLog.init(value)
         LogUtils.setLog(value)
-
     }
 
 object XLog {

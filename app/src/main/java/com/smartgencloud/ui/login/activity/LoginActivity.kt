@@ -82,7 +82,6 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
         }
 
-
         //注册
         fun register() {}
 

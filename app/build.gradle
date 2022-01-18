@@ -98,6 +98,7 @@ dependencies {
 
     //微信开源项目，替代SP
     implementation 'com.tencent:mmkv:1.2.11'
+
     implementation project(path: ':Helper')
     ksp 'com.github.liujingxing.rxhttp:rxhttp-compiler:2.8.3'
 
