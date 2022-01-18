@@ -11,7 +11,6 @@ import com.helper.ext.getColorExt
 import com.helper.state.BaseEmptyCallback
 import com.helper.state.BaseErrorCallback
 import com.helper.state.BaseLoadingCallback
-import com.helper.util.mvvmHelperLog
 import com.hjq.language.MultiLanguages
 import com.hjq.toast.ToastUtils
 import com.kingja.loadsir.callback.SuccessCallback
@@ -82,23 +81,7 @@ class InitComm : Task(TASK_ID, true) {
         // 单位毫秒 brv点击事件间隔
         BRV.clickThrottle = 1000
 
-        SmartRefreshLayout.setDefaultRefreshInitializer { context, layout ->
-            //设置 SmartRefreshLayout 通用配置
-            layout.setEnableScrollContentWhenLoaded(true)//是否在加载完成时滚动列表显示新的内容
-            layout.setFooterTriggerRate(0.6f)
-        }
-        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
-            //设置 Head
-            ClassicsHeader(context).apply {
-                setAccentColor(getColorExt(R.color.black))
-            }
-        }
-        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
-            //设置 Footer
-            ClassicsFooter(context).apply {
-                setAccentColor(getColorExt(R.color.black))
-            }
-        }
+
         //注册界面状态管理
         LoadSir.beginBuilder()
             .addCallback(BaseErrorCallback())
@@ -118,8 +101,6 @@ class InitUtils : Task(TASK_ID, true) {
     override fun run(name: String) {
         //初始化Log打印
         MMKV.initialize(appContext)
-        //框架全局打印日志开关
-        mvvmHelperLog = BuildConfig.DEBUG
 
         // 初始化语种切换框架
         MultiLanguages.init(appContext)

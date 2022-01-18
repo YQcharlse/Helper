@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.effective.android.anchors.AnchorsManager
 import com.effective.android.anchors.task.project.Project
+import com.helper.base.SmartGenHelper
 import com.helper.ext.currentProcessName
 import com.hjq.language.MultiLanguages
 import com.smartgencloud.BuildConfig
@@ -23,6 +24,7 @@ class Application : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        SmartGenHelper.init(this, BuildConfig.DEBUG)
         val processName = currentProcessName
         if (processName == packageName) {
             // 主进程初始化
