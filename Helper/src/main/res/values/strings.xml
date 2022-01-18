@@ -5,8 +5,6 @@
     <string name="helper_loading_error_tip">数据获取失败</string>
     <string name="helper_loading_empty_tip">暂时没有数据</string>
 
-
-
     <string name="helper_net_error_no">当前无网络，请检查你的网络设置</string>
     <string name="helper_net_error_timeout">连接超时,请稍后再试</string>
     <string name="helper_net_error_strong">网络不给力，请稍候重试！</string>
