@@ -1,13 +1,11 @@
 package com.smartgencloud.app
 
 import android.view.Gravity
-import com.drake.brv.utils.BRV
 import com.effective.android.anchors.task.Task
 import com.effective.android.anchors.task.TaskCreator
 import com.effective.android.anchors.task.project.Project
 import com.helper.base.appContext
 import com.helper.ext.dp
-import com.helper.ext.getColorExt
 import com.helper.state.BaseEmptyCallback
 import com.helper.state.BaseErrorCallback
 import com.helper.state.BaseLoadingCallback
@@ -15,10 +13,6 @@ import com.hjq.language.MultiLanguages
 import com.hjq.toast.ToastUtils
 import com.kingja.loadsir.callback.SuccessCallback
 import com.kingja.loadsir.core.LoadSir
-import com.scwang.smart.refresh.footer.ClassicsFooter
-import com.scwang.smart.refresh.header.ClassicsHeader
-import com.scwang.smart.refresh.layout.SmartRefreshLayout
-import com.smartgencloud.R
 import com.smartgencloud.app.api.NetHttpClient
 import com.tencent.mmkv.MMKV
 import rxhttp.RxHttpPlugins
@@ -77,26 +71,6 @@ class InitComm : Task(TASK_ID, true) {
 
     override fun run(name: String) {
 
-        // 单位毫秒 brv点击事件间隔
-        BRV.clickThrottle = 1000
-
-        SmartRefreshLayout.setDefaultRefreshInitializer { context, layout ->
-            //设置 SmartRefreshLayout 通用配置
-            layout.setEnableScrollContentWhenLoaded(true)//是否在加载完成时滚动列表显示新的内容
-            layout.setFooterTriggerRate(0.6f)
-        }
-        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
-            //设置 Head
-            ClassicsHeader(context).apply {
-                setAccentColor(getColorExt(R.color.black))
-            }
-        }
-        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
-            //设置 Footer
-            ClassicsFooter(context).apply {
-                setAccentColor(getColorExt(R.color.black))
-            }
-        }
         //注册界面状态管理
         LoadSir.beginBuilder()
             .addCallback(BaseErrorCallback())

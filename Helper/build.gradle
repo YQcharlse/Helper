@@ -73,11 +73,9 @@ dependencies {
     api "com.github.zhaokaiqiang.klog:library:1.6.0"
     //启动优化异步加载
     api "com.github.YummyLau:Anchors:v1.1.4"
-
     //状态栏
     api "com.gyf.immersionbar:immersionbar:3.0.0"
     api "com.gyf.immersionbar:immersionbar-ktx:3.0.0"
-
     //利用liveData发送消息
     api 'com.kunminx.arch:unpeek-livedata:7.2.0-beta1'
     //通过标签直接生成shape，无需再写shape.xml
@@ -100,7 +98,5 @@ dependencies {
     api 'com.github.angcyo.DslTablayout:ViewPager2Delegate:3.0.8'
     // banner： https://github.com/zhpanvip/BannerViewPager
     api 'com.github.zhpanvip:bannerviewpager:3.5.4'
-
-
 
 }
