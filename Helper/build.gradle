@@ -4,7 +4,8 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
 }
-
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.YQcharlse'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
