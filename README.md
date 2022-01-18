@@ -7,6 +7,6 @@ allprojects {
 		}
 	}
   
-  dependencies {
+dependencies {
 	        implementation 'com.github.YQcharlse:Helper:1.0.0'
 	}

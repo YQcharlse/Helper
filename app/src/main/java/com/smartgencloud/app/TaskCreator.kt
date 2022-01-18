@@ -18,7 +18,6 @@ import com.kingja.loadsir.core.LoadSir
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
-import com.smartgencloud.BuildConfig
 import com.smartgencloud.R
 import com.smartgencloud.app.api.NetHttpClient
 import com.tencent.mmkv.MMKV
@@ -81,7 +80,23 @@ class InitComm : Task(TASK_ID, true) {
         // 单位毫秒 brv点击事件间隔
         BRV.clickThrottle = 1000
 
-
+        SmartRefreshLayout.setDefaultRefreshInitializer { context, layout ->
+            //设置 SmartRefreshLayout 通用配置
+            layout.setEnableScrollContentWhenLoaded(true)//是否在加载完成时滚动列表显示新的内容
+            layout.setFooterTriggerRate(0.6f)
+        }
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
+            //设置 Head
+            ClassicsHeader(context).apply {
+                setAccentColor(getColorExt(R.color.black))
+            }
+        }
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
+            //设置 Footer
+            ClassicsFooter(context).apply {
+                setAccentColor(getColorExt(R.color.black))
+            }
+        }
         //注册界面状态管理
         LoadSir.beginBuilder()
             .addCallback(BaseErrorCallback())

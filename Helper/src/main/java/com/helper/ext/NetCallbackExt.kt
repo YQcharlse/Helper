@@ -2,12 +2,12 @@ package com.helper.ext
 
 import androidx.lifecycle.viewModelScope
 import com.helper.base.BaseViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import com.helper.net.BaseNetConstant
 import com.helper.net.LoadStatusEntity
 import com.helper.net.LoadingDialogEntity
 import com.helper.net.LoadingType
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 
 /**
