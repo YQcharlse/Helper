@@ -65,7 +65,7 @@ dependencies {
     // liveData
     api "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
     // 吐司框架：https://github.com/getActivity/ToastUtils
-    api 'com.github.getActivity:ToastUtils:10.0'
+    api 'com.github.getActivity:ToastUtils:10.2'
     //XPoup 弹窗
     api 'com.github.li-xiaojun:XPopup:2.7.5'
     api 'com.github.li-xiaojun:XPopupExt:0.0.8'
@@ -91,12 +91,12 @@ dependencies {
     api 'com.github.getActivity:TitleBar:9.3'
     // 权限请求框架：https://github.com/getActivity/XXPermissions
     api 'com.github.getActivity:XXPermissions:13.2'
-    // 头条界面适配：
+    // 头条界面适配：https://github.com/JessYanCoding/AndroidAutoSize
     api 'me.jessyan:autosize:1.2.1'
     // tab： https://github.com/angcyo/DslTabLayout
     api 'com.github.angcyo.DslTablayout:TabLayout:3.0.8'
     api 'com.github.angcyo.DslTablayout:ViewPager2Delegate:3.0.8'
     // banner： https://github.com/zhpanvip/BannerViewPager
-    api 'com.github.zhpanvip:bannerviewpager:3.5.4'
+    api 'com.github.zhpanvip:bannerviewpager:3.5.5'
 
 }

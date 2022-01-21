@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.Gravity
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -164,9 +163,9 @@ fun isLandscape(context: Context) =
 /**
  * 应用商店
  */
-fun gotoStore() {
+fun gotoStore(packName: String) {
     val uri =
-        Uri.parse("market://details?id=" + appContext.packageName)
+        Uri.parse("market://details?id=$packName")
     val goToMarket = Intent(Intent.ACTION_VIEW, uri)
     try {
         goToMarket.flags = Intent.FLAG_ACTIVITY_NEW_TASK
