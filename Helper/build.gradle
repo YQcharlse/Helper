@@ -87,9 +87,7 @@ dependencies {
     // 标题栏框架：https://github.com/getActivity/TitleBar
     api 'com.github.getActivity:TitleBar:9.3'
     // 权限请求框架：https://github.com/getActivity/XXPermissions
-    api 'com.github.getActivity:XXPermissions:13.2'
-    // 头条界面适配：https://github.com/JessYanCoding/AndroidAutoSize
-    api 'me.jessyan:autosize:1.2.1'
+    api 'com.github.getActivity:XXPermissions:13.5'
     // tab： https://github.com/angcyo/DslTabLayout
     api 'com.github.angcyo.DslTablayout:TabLayout:3.0.8'
     api 'com.github.angcyo.DslTablayout:ViewPager2Delegate:3.0.8'
