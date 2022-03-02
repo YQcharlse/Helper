@@ -190,7 +190,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
             //当请求失败时
             showError.observe(this@BaseVmFragment) {
                 if (it.loadingType == LoadingType.LOADING_XML) {
-                    showErrorUi(it.errorMessage)
+                    showErrorUi()
                 }
                 onRequestError(it)
             }
@@ -240,7 +240,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
      * 显示 错误 状态界面
      * @param errMessage String
      */
-    override fun showErrorUi(errMessage: String) {
+    override fun showErrorUi() {
         uiStatusManger.showCallback(BaseErrorCallback::class.java)
     }
 

@@ -41,7 +41,7 @@ interface BaseIView {
      * 展示错误界面
      * @param errMessage String
      */
-    fun showErrorUi(errMessage: String)
+    fun showErrorUi()
 
     /**
      * 界面显示加载成功

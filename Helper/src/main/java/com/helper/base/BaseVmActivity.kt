@@ -196,7 +196,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
             showError.observe(this@BaseVmActivity) {
                 //如果请求错误 并且loading类型为 xml 那么控制界面显示为错误布局
                 if (it.loadingType == LoadingType.LOADING_XML) {
-                    showErrorUi(it.errorMessage)
+                    showErrorUi()
                 }
                 onRequestError(it)
             }
@@ -243,7 +243,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
      * 显示 错误 状态界面
      * @param errMessage String
      */
-    override fun showErrorUi(errMessage: String) {
+    override fun showErrorUi() {
         uiStatusManger.showCallback(BaseErrorCallback::class.java)
     }
 

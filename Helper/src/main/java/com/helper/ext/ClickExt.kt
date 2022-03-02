@@ -1,7 +1,6 @@
 package com.helper.ext
 
 import android.view.View
-import androidx.databinding.BindingAdapter
 
 /**
  * @Author smart_yq
