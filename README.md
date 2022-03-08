@@ -1,6 +1,6 @@
 # Helper
 
-- ** 在主要build.gradle中加入 Jitpack 仓库**
+- ** 在主要build.gradle中加入 Jitpack 仓库 [![](https://jitpack.io/v/YQcharlse/Helper.svg)](https://jitpack.io/#YQcharlse/Helper)  **
 ```gradle
 allprojects {
     repositories {
