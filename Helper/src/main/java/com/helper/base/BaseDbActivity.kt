@@ -1,12 +1,9 @@
 package com.helper.base
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.helper.ext.inflateBinding
 import com.noober.background.BackgroundLibrary
-import java.lang.reflect.ParameterizedType
 
 /**
  * @Author smart_yq

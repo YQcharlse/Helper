@@ -55,7 +55,6 @@ class InformationActivity : BaseActivity<LoginViewModel, ActivityInformationBind
         })
 
 
-
     }
 
     inner class InforClickProxy() {
