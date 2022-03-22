@@ -20,8 +20,6 @@ android {
         // 仅保留 xxhdpi 图片资源（目前主流分辨率 1920 * 1080）
         resConfig 'xxhdpi'
 
-        manifestPlaceholders = [qqappid: "101956955"]
-
         sourceSets.debug {
             //如果通过productFlavors配置了多渠道，则配置 /../ksp/xxxDebug/kotlin
             java.srcDir("build/generated/ksp/debug/kotlin")
@@ -94,8 +92,8 @@ dependencies {
     ksp 'com.github.liujingxing.rxhttp:rxhttp-compiler:2.8.3'
 
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    //图片选择 https://github.com/LuckSiege/PictureSelector
-    implementation 'io.github.lucksiege:pictureselector:v2.7.2'
+    //图片选择 https://github.com/HuanTanSheng/EasyPhotos
+    implementation 'com.github.HuanTanSheng:EasyPhotos:3.1.5'
 
     //刷新头
     implementation "io.github.scwang90:refresh-header-classics:2.0.5"
@@ -110,7 +108,7 @@ dependencies {
     // banner： https://github.com/zhpanvip/BannerViewPager
     implementation 'com.github.zhpanvip:bannerviewpager:3.5.5'
     // 头条界面适配：https://github.com/JessYanCoding/AndroidAutoSize
-    implementation 'me.jessyan:autosize:1.2.1'
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
     // 权限请求框架：https://github.com/getActivity/XXPermissions
     implementation 'com.github.getActivity:XXPermissions:13.5'
 
