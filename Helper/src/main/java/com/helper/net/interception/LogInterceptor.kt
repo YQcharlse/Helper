@@ -15,15 +15,17 @@ import java.net.URLDecoder
 import java.nio.charset.Charset
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.jvm.Throws
 
 class LogInterceptor : Interceptor {
     private val mPrinter: FormatPrinter = DefaultFormatPrinter()
-    private val printLevel =
+    private var printLevel =
         Level.ALL
 
     constructor() {}
-    constructor(printLevel: Level?) {}
+    constructor(printLevel: Level) {
+        this.printLevel = printLevel
+    }
+
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -48,7 +50,7 @@ class LogInterceptor : Interceptor {
         originalResponse = try {
             chain.proceed(request)
         } catch (e: Exception) {
-            Log.d("Http Error: %s", e.message?:"")
+            Log.d("Http Error: %s", e.message ?: "")
             throw e
         }
         val t2 = if (logResponse) System.nanoTime() else 0
