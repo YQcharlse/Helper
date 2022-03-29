@@ -71,8 +71,8 @@ dependencies {
     //启动优化异步加载
     api 'com.github.YummyLau:Anchors:v1.1.4'
     //状态栏 https://github.com/gyf-dev/ImmersionBar
-    api 'com.geyifeng.immersionbar:immersionbar:3.2.1'
-    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.1'
+    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
     //管理界面状态 https://github.com/KingJA/LoadSir
     api "com.kingja.loadsir:loadsir:1.3.8"
     //rxHttp https://github.com/liujingxing/rxhttp
@@ -81,5 +81,5 @@ dependencies {
     // 标题栏框架：https://github.com/getActivity/TitleBar
     api 'com.github.getActivity:TitleBar:9.3'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
-    api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.3'
+    api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.4'
 }
