@@ -35,7 +35,6 @@ class Application : Application() {
         }
     }
 
-
     /**
      * @description  代码的初始化请不要放在onCreate直接操作，按照下面新建异步方法
      */
@@ -64,8 +63,6 @@ class Application : Application() {
      */
     private fun onOtherProcessInit(it: String) {
 
-
     }
-
 
 }
