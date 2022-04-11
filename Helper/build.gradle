@@ -67,7 +67,7 @@ dependencies {
     api 'com.github.li-xiaojun:XPopup:2.7.6'
     api 'com.github.li-xiaojun:XPopupExt:0.0.8'
     //log
-    api 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    api 'com.github.liangjingkanji:LogCat:1.1.0'
     //启动优化异步加载
     api 'com.github.YummyLau:Anchors:v1.1.4'
     //状态栏 https://github.com/gyf-dev/ImmersionBar

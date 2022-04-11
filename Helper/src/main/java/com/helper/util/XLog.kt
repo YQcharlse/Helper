@@ -1,9 +1,7 @@
 package com.helper.util
 
+import com.drake.logcat.LogCat
 import com.google.gson.Gson
-import com.socks.library.klog.BaseLog
-import com.socks.library.klog.JsonLog
-import com.socks.library.klog.XmlLog
 import com.helper.net.interception.logging.util.LogUtils
 import java.io.PrintWriter
 import java.io.StringWriter
@@ -17,6 +15,7 @@ import java.io.StringWriter
 var SmartGenHelperLog: Boolean = true
     set(value) {
         field = value
+        LogCat.config { enabled = value }
         XLog.init(value)
         LogUtils.setLog(value)
     }
@@ -176,15 +175,10 @@ object XLog {
         val tag = contents[0]
         val msg = contents[1]
         val headString = contents[2]
-        BaseLog.printDefault(D, tag, headString + msg)
+        LogCat.print(D, headString + msg, tag)
     }
 
-    private fun printLog(
-        type: Int,
-        tagStr: String?,
-        stackTraceIndex: Int,
-        msg: Any?
-    ) {
+    private fun printLog(type: Int, tagStr: String?, stackTraceIndex: Int, msg: Any?) {
         if (!IS_SHOW_LOG) return
         val contents =
             wrapperContent(stackTraceIndex, tagStr, msg)
@@ -192,10 +186,10 @@ object XLog {
         val msgValue = contents[1]
         val headString = contents[2]
         when (type) {
-            V, D, I, W, E, A -> BaseLog.printDefault(type, tag, headString + msgValue)
-            JSON -> JsonLog.printJson(tag, msgValue, headString)
-            XML -> XmlLog.printXml(tag, msgValue, headString)
-            else -> BaseLog.printDefault(type, tag, headString + msgValue)
+            V, D, I, W, E, A -> LogCat.print(type, headString + msgValue, tag)
+            JSON -> LogCat.json(msgValue, tag, headString)
+            XML -> LogCat.print(type, msgValue, tag)
+            else -> LogCat.print(type, headString + msgValue, tag)
         }
     }
 
