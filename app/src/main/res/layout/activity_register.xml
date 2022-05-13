@@ -7,12 +7,12 @@
 
         <variable
             name="viewModel"
-            type="com.smartgencloud.ui.login.viewmodel.LoginViewModel" />
+            type="com.smartgenhelpter.ui.login.viewmodel.LoginViewModel" />
 
 
         <variable
             name="click"
-            type="com.smartgencloud.ui.login.activity.RegisterActivity.RegisterClickProxy" />
+            type="com.smartgenhelpter.ui.login.activity.RegisterActivity.RegisterClickProxy" />
 
 
     </data>
@@ -41,7 +41,7 @@
                 android:textStyle="bold" />
 
 
-            <com.smartgencloud.app.widget.view.RegexEditText
+            <com.smartgenhelpter.ui.widget.view.RegexEditText
                 android:id="@+id/et_reg_phone"
                 style="@style/EditTextStyle"
                 android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 android:paddingEnd="@dimen/dp.30">
 
 
-                <com.smartgencloud.app.widget.view.RegexEditText
+                <com.smartgenhelpter.ui.widget.view.RegexEditText
                     android:id="@+id/et_reg_code"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                     android:textColorHint="#4D121E36"
                     android:textSize="@dimen/sp.16" />
 
-                <com.smartgencloud.app.widget.view.CountdownView
+                <com.smartgenhelpter.ui.widget.view.CountdownView
                     android:id="@+id/cv_get_code"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -93,7 +93,7 @@
             <View style="@style/HorizontalLineStyle" />
 
 
-            <com.smartgencloud.app.widget.view.PasswordEditText
+            <com.smartgenhelpter.ui.widget.view.PasswordEditText
                 android:id="@+id/et_reg_password"
                 style="@style/EditTextStyle"
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
             <View style="@style/HorizontalLineStyle" />
 
 
-            <com.smartgencloud.app.widget.view.PasswordEditText
+            <com.smartgenhelpter.ui.widget.view.PasswordEditText
                 android:id="@+id/et_reg_newPassword"
                 style="@style/EditTextStyle"
                 android:layout_width="match_parent"

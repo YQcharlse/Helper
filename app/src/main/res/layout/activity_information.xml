@@ -7,7 +7,7 @@
 
         <variable
             name="click"
-            type="com.smartgencloud.ui.login.activity.InformationActivity.InforClickProxy" />
+            type="com.smartgenhelpter.ui.login.activity.InformationActivity.InforClickProxy" />
     </data>
 
 
@@ -67,7 +67,7 @@
                 android:orientation="horizontal"
                 android:paddingEnd="@dimen/dp.30">
 
-                <com.smartgencloud.app.widget.view.RegexEditText
+                <com.smartgenhelpter.ui.widget.view.RegexEditText
                     android:id="@+id/et_info_username"
                     style="@style/EditTextStyle"
                     android:layout_width="0dp"

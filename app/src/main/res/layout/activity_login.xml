@@ -9,11 +9,11 @@
 
         <variable
             name="viewModel"
-            type="com.smartgencloud.ui.login.viewmodel.LoginViewModel" />
+            type="com.smartgenhelpter.ui.login.viewmodel.LoginViewModel" />
 
         <variable
             name="click"
-            type="com.smartgencloud.ui.login.activity.LoginActivity.LoginClickProxy" />
+            type="com.smartgenhelpter.ui.login.activity.LoginActivity.LoginClickProxy" />
 
     </data>
 
@@ -67,7 +67,7 @@
             </LinearLayout>
 
 
-            <com.smartgencloud.app.widget.SettingBar
+            <com.smartgenhelpter.ui.widget.SettingBar
                 android:id="@+id/set_login_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             <View style="@style/HorizontalLineStyle" />
 
 
-            <com.smartgencloud.app.widget.view.RegexEditText
+            <com.smartgenhelpter.ui.widget.view.RegexEditText
                 android:id="@+id/ret_login_username"
                 style="@style/EditTextStyle"
                 android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             <View style="@style/HorizontalLineStyle" />
 
 
-            <com.smartgencloud.app.widget.view.PasswordEditText
+            <com.smartgenhelpter.ui.widget.view.PasswordEditText
                 android:id="@+id/ret_login_password"
                 style="@style/EditTextStyle"
                 android:layout_width="match_parent"

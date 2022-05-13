@@ -2,7 +2,7 @@ ext{
     android = [
             compileSdkVersion: 31,
             buildToolsVersion: "30.0.3",
-            applicationId    : "com.example.smartgenhelpter",
+            applicationId    : "com.smartgenhelpter",
             minSdkVersion    : 21,
             targetSdkVersion : 31,
             versionCode      : 1,
