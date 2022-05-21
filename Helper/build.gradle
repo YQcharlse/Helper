@@ -58,11 +58,11 @@ dependencies {
     // 吐司框架：https://github.com/getActivity/ToastUtils
     api 'com.github.getActivity:ToastUtils:10.3'
     //XPoup 弹窗  https://github.com/li-xiaojun/XPopup
-    api 'com.github.li-xiaojun:XPopup:2.7.7'
+    api 'com.github.li-xiaojun:XPopup:2.8.0 '
     api 'com.github.li-xiaojun:XPopupExt:0.0.8'
     //log
-    api 'com.github.liangjingkanji:LogCat:1.1.0'
-    //启动优化异步加载
+    api 'com.github.liangjingkanji:LogCat:1.2.2'
+    //启动优化异步加载 https://github.com/DSAppTeam/Anchors
     api 'com.github.YummyLau:Anchors:v1.1.4'
     //状态栏 https://github.com/gyf-dev/ImmersionBar
     api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
