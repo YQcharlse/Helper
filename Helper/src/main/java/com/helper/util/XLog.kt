@@ -15,7 +15,7 @@ import java.io.StringWriter
 var SmartGenHelperLog: Boolean = true
     set(value) {
         field = value
-        LogCat.config { enabled = value }
+        LogCat.setDebug(value)
         XLog.init(value)
         LogUtils.setLog(value)
     }
@@ -37,9 +37,7 @@ object XLog {
     const val I = 0x3
     const val W = 0x4
     const val E = 0x5
-    const val A = 0x6
     const val JSON = 0x7
-    const val XML = 0x8
 
     private const val STACK_TRACE_INDEX_5 = 5
     private const val STACK_TRACE_INDEX_4 = 4
@@ -121,17 +119,6 @@ object XLog {
         logType(E, tag, STACK_TRACE_INDEX_5, msg)
     }
 
-    fun a() {
-        printLog(A, null, STACK_TRACE_INDEX_5, DEFAULT_MESSAGE)
-    }
-
-    fun a(msg: Any?) {
-        printLog(A, null, STACK_TRACE_INDEX_5, msg)
-    }
-
-    fun a(tag: String?, msg: Any?) {
-        logType(A, tag, STACK_TRACE_INDEX_5, msg)
-    }
 
     fun json(jsonFormat: String?) {
         printLog(JSON, null, STACK_TRACE_INDEX_5, jsonFormat)
@@ -139,14 +126,6 @@ object XLog {
 
     fun json(tag: String?, jsonFormat: String?) {
         logXmlOrJson(JSON, tag, STACK_TRACE_INDEX_5, jsonFormat)
-    }
-
-    fun xml(xml: String?) {
-        printLog(XML, null, STACK_TRACE_INDEX_5, xml)
-    }
-
-    fun xml(tag: String?, xml: String?) {
-        logXmlOrJson(XML, tag, STACK_TRACE_INDEX_5, xml)
     }
 
     fun trace() {
@@ -172,24 +151,27 @@ object XLog {
         }
         val contents =
             wrapperContent(STACK_TRACE_INDEX_4, null, sb.toString())
-        val tag = contents[0]
+        val tag = contents[0].toString()
         val msg = contents[1]
         val headString = contents[2]
-        LogCat.print(D, headString + msg, tag)
+        LogCat.d(headString + msg, tag)
     }
 
     private fun printLog(type: Int, tagStr: String?, stackTraceIndex: Int, msg: Any?) {
         if (!IS_SHOW_LOG) return
         val contents =
             wrapperContent(stackTraceIndex, tagStr, msg)
-        val tag = contents[0]
-        val msgValue = contents[1]
-        val headString = contents[2]
+        val tag = contents[0].toString()
+        val msgValue = contents[1].toString()
+        val headString = contents[2].toString()
         when (type) {
-            V, D, I, W, E, A -> LogCat.print(type, headString + msgValue, tag)
+            V -> LogCat.v(headString + msgValue, tag)
+            D -> LogCat.d(headString + msgValue, tag)
+            I -> LogCat.i(headString + msgValue, tag)
+            W -> LogCat.w(headString + msgValue, tag)
+            E -> LogCat.e(headString + msgValue, tag)
+            E -> LogCat.e(headString + msgValue, tag)
             JSON -> LogCat.json(msgValue, tag, headString)
-            XML -> LogCat.print(type, msgValue, tag)
-            else -> LogCat.print(type, headString + msgValue, tag)
         }
     }
 
