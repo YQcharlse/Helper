@@ -26,7 +26,7 @@ import com.kingja.loadsir.core.LoadSir
  */
 abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIView {
 
-    var dataBindView: View? = null
+    private var dataBindView: View? = null
 
     //界面状态管理者
     lateinit var uiStatusManger: LoadService<*>
