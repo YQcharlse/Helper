@@ -25,5 +25,5 @@ dependencies {
 - ** 在Application中初始化**
 
 ```kotlin
- MvvmHelper.init(this,BuildConfig.DEBUG)
+ SmartGenHelper.init(this,BuildConfig.DEBUG)
 ```
