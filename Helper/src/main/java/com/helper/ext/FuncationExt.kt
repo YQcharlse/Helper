@@ -13,3 +13,10 @@ inline fun <reified T> T?.notNull(notNullAction: (T) -> Unit, nullAction: () -> 
         nullAction.invoke()
     }
 }
+
+
+inline fun <reified T> T?.notNull(notNullAction: (T) -> Unit) {
+    if (this != null) {
+        notNullAction.invoke(this)
+    }
+}

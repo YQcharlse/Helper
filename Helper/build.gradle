@@ -58,7 +58,7 @@ dependencies {
     // 吐司框架：https://github.com/getActivity/ToastUtils
     api 'com.github.getActivity:ToastUtils:10.5'
     //XPoup 弹窗  https://github.com/li-xiaojun/XPopup
-    api 'com.github.li-xiaojun:XPopup:2.8.9'
+    api 'com.github.li-xiaojun:XPopup:2.8.11'
     api 'com.github.li-xiaojun:XPopupExt:0.0.8'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
