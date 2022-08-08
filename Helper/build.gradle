@@ -13,7 +13,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 16
-        versionName "1.1.6"
+        versionName "1.1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -88,7 +88,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.1.6'
+                version = '1.1.7'
             }
         }
     }
