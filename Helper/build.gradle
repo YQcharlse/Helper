@@ -59,7 +59,6 @@ dependencies {
     api 'com.github.getActivity:ToastUtils:10.5'
     //XPoup 弹窗  https://github.com/li-xiaojun/XPopup
     api 'com.github.li-xiaojun:XPopup:2.8.14'
-    api 'com.github.li-xiaojun:XPopupExt:0.0.8'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
     //启动优化异步加载 https://github.com/DSAppTeam/Anchors
