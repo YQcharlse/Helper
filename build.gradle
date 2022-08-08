@@ -2,23 +2,23 @@
 apply from: "config.gradle"
 
 buildscript {
-    ext.kotlin_version = "1.7.0"
+    ext.kotlin_version = "1.7.10"
     repositories {
         maven { url 'https://jitpack.io' }
+        //阿里云云效仓库：https://maven.aliyun.com/mvn/guide
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/google' }
-        //阿里云云效仓库：https://maven.aliyun.com/mvn/guide
-        maven {url 'https://developer.huawei.com/repo/'}
+
+
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
-        classpath 'com.huawei.agconnect:agcp:1.6.0.300'
     }
 }
 
@@ -28,9 +28,6 @@ allprojects {
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/google' }
-
-
-        maven { url 'https://developer.huawei.com/repo/'}
 
     }
 }
