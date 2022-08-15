@@ -10,6 +10,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import com.helper.base.appContext
+import kotlin.math.roundToInt
 
 /**
  * @Author smart_yq
@@ -64,6 +65,12 @@ fun sp2px(spVal: Float): Int {
  * px转sp
  */
 fun px2sp(pxVal: Float) = pxVal / appContext.resources.displayMetrics.scaledDensity
+
+/**
+ * dip 转 dp
+ */
+fun dip2dp(dpValue: Int) = (dpValue * getDisplayMetrics()).roundToInt()
+
 
 /************************************** 屏幕宽高*********************************************** */
 
