@@ -69,9 +69,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
         }
         initImmersionBar()
         findViewById<FrameLayout>(R.id.baseContentView).addView(
-            if (dataBindView == null) LayoutInflater.from(
-                this
-            ).inflate(layoutId, null) else dataBindView
+            if (dataBindView == null) LayoutInflater.from(this).inflate(layoutId, null) else dataBindView
         )
         uiStatusManger = LoadSir.getDefault()
             .register(if (getLoadingView() == null) findViewById<FrameLayout>(R.id.baseContentView) else getLoadingView()!!) {

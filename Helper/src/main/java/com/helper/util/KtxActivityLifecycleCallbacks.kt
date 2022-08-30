@@ -12,8 +12,8 @@ import com.helper.ext.removeActivity
  */
 class KtxActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
 
-    override fun onActivityPaused(p0: Activity) {
-
+    override fun onActivityPaused(activity: Activity) {
+        XLog.d(activity.javaClass.simpleName)
     }
 
     override fun onActivityStarted(p0: Activity) {
@@ -35,7 +35,8 @@ class KtxActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
         addActivity(activity)
     }
 
-    override fun onActivityResumed(p0: Activity) {
+    override fun onActivityResumed(activity: Activity) {
+        XLog.d(activity.javaClass.simpleName)
     }
 
 }

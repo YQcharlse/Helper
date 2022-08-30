@@ -25,6 +25,7 @@ abstract class BaseDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVm
         //利用反射 根据泛型得到 ViewDataBinding
         mBind = inflateBinding()
         BackgroundLibrary.inject(this)
+        mBind.lifecycleOwner = this
         return mBind.root
     }
 }

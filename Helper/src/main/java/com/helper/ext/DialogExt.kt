@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.helper.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.cancel
 
 /**
  * @Author smart_yq
@@ -63,7 +65,10 @@ private var loadingDialog: Dialog? = null
 /**
  * 打开等待框
  */
-fun AppCompatActivity.showLoadingExt(message: String = "请求网络中") {
+/**
+ * 打开等待框
+ */
+fun AppCompatActivity.showLoadingExt(message: String = "请求网络中...", coroutineScope: CoroutineScope? = null) {
     dismissLoadingExt()
     if (!this.isFinishing) {
         if (loadingDialog == null) {
@@ -77,6 +82,10 @@ fun AppCompatActivity.showLoadingExt(message: String = "请求网络中") {
                         .inflate(R.layout.layout_loading_view, null).apply {
                             this.findViewById<TextView>(R.id.loading_tips).text = message
                         })
+                setOnCancelListener {
+                    //关闭弹窗时 将请求也关闭了
+                    coroutineScope?.cancel()
+                }
             }
         }
         loadingDialog?.show()
@@ -86,7 +95,7 @@ fun AppCompatActivity.showLoadingExt(message: String = "请求网络中") {
 /**
  * 打开等待框
  */
-fun Fragment.showLoadingExt(message: String = "请求网络中") {
+fun Fragment.showLoadingExt(message: String = "请求网络中...", coroutineScope: CoroutineScope? = null) {
     dismissLoadingExt()
     activity?.let {
         if (!it.isFinishing) {
@@ -101,6 +110,10 @@ fun Fragment.showLoadingExt(message: String = "请求网络中") {
                             .inflate(R.layout.layout_loading_view, null).apply {
                                 this.findViewById<TextView>(R.id.loading_tips).text = message
                             })
+                    setOnCancelListener {
+                        //关闭弹窗时 将请求也关闭了
+                        coroutineScope?.cancel()
+                    }
                 }
             }
             loadingDialog?.show()

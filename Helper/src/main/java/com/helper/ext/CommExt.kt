@@ -20,10 +20,6 @@ import com.helper.R
 import com.helper.base.appContext
 import com.hjq.toast.ToastUtils
 
-/**
- * @Author smart_yq
- * @Date  17:56
- */
 
 
 val gson: Gson by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { Gson() }

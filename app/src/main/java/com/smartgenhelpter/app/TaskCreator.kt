@@ -71,13 +71,6 @@ class InitComm : Task(TASK_ID, true) {
 
     override fun run(name: String) {
 
-        //注册界面状态管理
-        LoadSir.beginBuilder()
-            .addCallback(BaseErrorCallback())
-            .addCallback(BaseEmptyCallback())
-            .addCallback(BaseLoadingCallback())
-            .setDefaultCallback(SuccessCallback::class.java)
-            .commit()
     }
 }
 
@@ -105,9 +98,7 @@ class InitToast : Task(TASK_ID, false) {
     }
 
     override fun run(name: String) {
-        //初始化吐司 这个吐司必须要主线程中初始化
-        ToastUtils.init(appContext)
-        ToastUtils.setGravity(Gravity.BOTTOM, 0, 100.dp)
+
     }
 }
 

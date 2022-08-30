@@ -1,8 +1,16 @@
 package com.helper.base
 
 import android.app.Application
+import android.view.Gravity
+import com.helper.ext.dp
+import com.helper.state.BaseEmptyCallback
+import com.helper.state.BaseErrorCallback
+import com.helper.state.BaseLoadingCallback
 import com.helper.util.KtxActivityLifecycleCallbacks
 import com.helper.util.SmartGenHelperLog
+import com.hjq.toast.ToastUtils
+import com.kingja.loadsir.callback.SuccessCallback
+import com.kingja.loadsir.core.LoadSir
 
 /**
  * @Author smart_yq
@@ -28,6 +36,18 @@ object SmartGenHelper {
         SmartGenHelperLog = debug
         //注册全局 activity生命周期监听
         application.registerActivityLifecycleCallbacks(KtxActivityLifecycleCallbacks())
+
+        //注册界面状态管理
+        LoadSir.beginBuilder()
+            .addCallback(BaseErrorCallback())
+            .addCallback(BaseEmptyCallback())
+            .addCallback(BaseLoadingCallback())
+            .setDefaultCallback(SuccessCallback::class.java)
+            .commit()
+
+        //初始化吐司 这个吐司必须要主线程中初始化
+        ToastUtils.init(app)
+        ToastUtils.setGravity(Gravity.BOTTOM, 0, 100.dp)
     }
 
 }
