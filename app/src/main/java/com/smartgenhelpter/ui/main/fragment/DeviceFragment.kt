@@ -16,4 +16,14 @@ class DeviceFragment : BaseFragment<BaseViewModel, FragmentDeviceBinding>() {
 
 
     }
+
+    override fun lazyLoadData() {
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
 }

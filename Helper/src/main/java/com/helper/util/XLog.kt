@@ -1,8 +1,8 @@
 package com.helper.util
 
 import com.drake.logcat.LogCat
-import com.google.gson.Gson
 import com.helper.net.interception.logging.util.LogUtils
+import com.hjq.gson.factory.GsonFactory
 import java.io.PrintWriter
 import java.io.StringWriter
 
@@ -23,7 +23,7 @@ var SmartGenHelperLog: Boolean = true
 object XLog {
 
     private val gson by lazy {
-        Gson()
+        GsonFactory.getSingletonGson()
     }
 
     private const val NULL_TIPS = "Log with null object"

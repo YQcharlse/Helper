@@ -18,11 +18,11 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.helper.R
 import com.helper.base.appContext
+import com.hjq.gson.factory.GsonFactory
 import com.hjq.toast.ToastUtils
 
 
-
-val gson: Gson by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { Gson() }
+val gson: Gson by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { GsonFactory.getSingletonGson() }
 
 fun Any?.toJsonStr(): String {
     return gson.toJson(this)

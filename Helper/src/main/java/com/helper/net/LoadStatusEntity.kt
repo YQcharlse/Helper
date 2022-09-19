@@ -2,8 +2,8 @@ package com.helper.net
 
 
 /**
- * @Author smart_yq
- * @Date 2021-11-03
+ * Author smart_yq
+ * Date 2021-11-03
  * 描述　: 请求失败，请求数据为空 状态类
  */
 data class LoadStatusEntity(
