@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
-    id 'maven-publish'
 }
 
 task generateSourcesJar(type: Jar){
@@ -17,8 +17,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 19
-        versionName "1.2.0"
+        versionCode 20
+        versionName "1.2.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -38,9 +38,10 @@ android {
         jvmTarget = '1.8'
     }
 
-    publishing {
-        singleVariant("release")
-    }
+
+//    publishing {
+//        singleVariant("release")
+//    }
 
 }
 
@@ -68,7 +69,7 @@ dependencies {
     // 吐司框架：https://github.com/getActivity/ToastUtils
     api 'com.github.getActivity:ToastUtils:10.5'
     //XPoup 弹窗  https://github.com/li-xiaojun/XPopup
-    api 'com.github.li-xiaojun:XPopup:2.9.2'
+    api 'com.github.li-xiaojun:XPopup:2.9.7'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
     //启动优化异步加载 https://github.com/DSAppTeam/Anchors
@@ -91,7 +92,6 @@ dependencies {
 
 }
 
-
 afterEvaluate {
     publishing {
         publications {
@@ -100,7 +100,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.0'
+                version = '1.2.1'
             }
         }
     }
