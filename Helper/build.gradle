@@ -77,7 +77,7 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:4.10.0'
     api 'com.github.liujingxing.rxhttp:rxhttp:2.9.5'
     // 标题栏框架：https://github.com/getActivity/TitleBar
-    api 'com.github.getActivity:TitleBar:9.5'
+    api 'com.github.getActivity:TitleBar:9.6'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.5'
 
