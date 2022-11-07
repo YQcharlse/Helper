@@ -107,4 +107,7 @@ dependencies {
     // 权限请求框架：https://github.com/getActivity/XXPermissions
     implementation 'com.github.getActivity:XXPermissions:15.0'
 
+    //XPoup 弹窗  https://github.com/li-xiaojun/XPopup
+    api 'com.github.li-xiaojun:XPopup:2.9.11'
+
 }

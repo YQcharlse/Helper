@@ -13,8 +13,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 20
-        versionName "1.2.1"
+        versionCode 21
+        versionName "1.2.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -63,9 +63,7 @@ dependencies {
     //利用liveData发送消息
     api 'com.kunminx.arch:unpeek-livedata:7.6.0'
     // 吐司框架：https://github.com/getActivity/ToastUtils
-    api 'com.github.getActivity:ToastUtils:10.5'
-    //XPoup 弹窗  https://github.com/li-xiaojun/XPopup
-    api 'com.github.li-xiaojun:XPopup:2.9.7'
+    api 'com.github.getActivity:ToastUtils:11.0'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
     //启动优化异步加载 https://github.com/DSAppTeam/Anchors
@@ -96,7 +94,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.1'
+                version = '1.2.2'
             }
         }
     }
