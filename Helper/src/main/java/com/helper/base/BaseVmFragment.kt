@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import com.helper.R
 import com.helper.ext.*
 import com.helper.net.LoadStatusEntity
 import com.helper.net.LoadingDialogEntity
@@ -248,6 +250,17 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
      * 显示 空数据 状态界面
      */
     override fun showEmptyUi() {
+        uiStatusManger.showCallback(BaseEmptyCallback::class.java)
+    }
+
+    /**
+     * 显示 空数据 状态界面
+     * emptyMessage 提示信息
+     */
+    override fun showEmptyUi(emptyMessage: String) {
+        uiStatusManger.setCallBack(BaseEmptyCallback()::class.java) { context, view ->
+            view.findViewById<TextView>(R.id.tv_empty_text).text = emptyMessage
+        }
         uiStatusManger.showCallback(BaseEmptyCallback::class.java)
     }
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.gyf.immersionbar.ImmersionBar
 import com.helper.R
@@ -44,6 +45,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
+        overridePendingTransition(R.anim.right_in_activity, R.anim.right_out_activity)
         javaClass.simpleName.logD()
         //生成ViewModel
         mViewModel = createViewModel()
@@ -253,6 +255,17 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
     }
 
     /**
+     * 显示 空数据 状态界面
+     * emptyMessage 提示信息
+     */
+    override fun showEmptyUi(emptyMessage: String) {
+        uiStatusManger.setCallBack(BaseEmptyCallback()::class.java) { context, view ->
+            view.findViewById<TextView>(R.id.tv_empty_text).text = emptyMessage
+        }
+        uiStatusManger.showCallback(BaseEmptyCallback::class.java)
+    }
+
+    /**
      * 显示 loading 状态界面
      */
     override fun showLoadingUi() {
@@ -288,6 +301,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
     override fun finish() {
         dismissLoadingExt()
         super.finish()
+        overridePendingTransition(R.anim.left_in_activity, R.anim.left_out_activity)
     }
 
 

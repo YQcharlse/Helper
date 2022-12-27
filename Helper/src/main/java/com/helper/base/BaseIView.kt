@@ -28,9 +28,15 @@ interface BaseIView {
     }
 
     /**
-     * 展示加载中界面
+     * 展示空界面
      */
     fun showEmptyUi()
+
+    /**
+     * 展示空界面
+     * emptyMessage 空信息
+     */
+    fun showEmptyUi(emptyMessage: String)
 
     /**
      * 展示加载中界面

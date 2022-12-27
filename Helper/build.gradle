@@ -13,8 +13,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 21
-        versionName "1.2.2"
+        versionCode 22
+        versionName "1.2.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -33,11 +33,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-
-//    publishing {
-//        singleVariant("release")
-//    }
 
 }
 
@@ -63,11 +58,11 @@ dependencies {
     //利用liveData发送消息
     api 'com.kunminx.arch:unpeek-livedata:7.6.0'
     // 吐司框架：https://github.com/getActivity/ToastUtils
-    api 'com.github.getActivity:ToastUtils:11.0'
+    api 'com.github.getActivity:ToastUtils:11.2'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
     //启动优化异步加载 https://github.com/DSAppTeam/Anchors
-    api 'com.github.DSAppTeam:Anchors:v1.1.7'
+    api 'com.github.DSAppTeam:Anchors:v1.1.8'
     //状态栏 https://github.com/gyf-dev/ImmersionBar
     api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
     api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
@@ -80,7 +75,6 @@ dependencies {
     api 'com.github.getActivity:TitleBar:9.6'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.5'
-
     // Gson 解析容错：https://github.com/getActivity/GsonFactory
     api 'com.github.getActivity:GsonFactory:6.3'
 
@@ -94,7 +88,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.2'
+                version = '1.2.3'
             }
         }
     }
