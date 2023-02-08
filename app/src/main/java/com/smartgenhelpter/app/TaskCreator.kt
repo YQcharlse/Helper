@@ -84,8 +84,7 @@ class InitUtils : Task(TASK_ID, true) {
         //初始化Log打印
         MMKV.initialize(appContext)
 
-        // 初始化语种切换框架
-        MultiLanguages.init(appContext)
+
 
 
     }
