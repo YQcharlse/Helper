@@ -65,4 +65,24 @@ class Application : Application() {
 
     }
 
+    private fun getMylist(){
+        AnchorsManager.getInstance()
+            .debuggable(BuildConfig.DEBUG)
+            //设置锚点
+            .addAnchor(
+                com.smartgenhelpter.app.InitNetWork.Companion.TASK_ID,
+                com.smartgenhelpter.app.InitUtils.Companion.TASK_ID,
+                com.smartgenhelpter.app.InitComm.Companion.TASK_ID,
+                com.smartgenhelpter.app.InitToast.Companion.TASK_ID
+            )
+            .start(
+                Project.Builder("app", com.smartgenhelpter.app.AppTaskFactory())
+                    .add(com.smartgenhelpter.app.InitNetWork.Companion.TASK_ID)
+                    .add(com.smartgenhelpter.app.InitComm.Companion.TASK_ID)
+                    .add(com.smartgenhelpter.app.InitUtils.Companion.TASK_ID)
+                    .add(com.smartgenhelpter.app.InitToast.Companion.TASK_ID)
+                    .build()
+            )
+    }
+
 }
