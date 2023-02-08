@@ -32,6 +32,7 @@ class InformationActivity : BaseActivity<LoginViewModel, ActivityInformationBind
     }
 
 
+
     override fun initView(savedInstanceState: Bundle?) {
 
         mBind.etInfoUsername.addTextChangedListener(object : TextWatcher {
