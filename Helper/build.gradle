@@ -76,7 +76,7 @@ dependencies {
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.5'
     // Gson 解析容错：https://github.com/getActivity/GsonFactory
-    api 'com.github.getActivity:GsonFactory:6.3'
+    api 'com.github.getActivity:GsonFactory:6.5'
 
 }
 
