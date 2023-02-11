@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.helper.base.BaseViewModel
 import com.helper.ext.clickNoRepeat
 import com.helper.ext.toStartActivity
+import com.helper.ext.warningToast
 import com.smartgenhelpter.app.base.BaseFragment
 import com.smartgenhelpter.databinding.FragmentFrontpageBinding
 import com.smartgenhelpter.ui.login.activity.LoginActivity
@@ -16,12 +17,10 @@ import com.smartgenhelpter.ui.login.activity.LoginActivity
 class FrontPageFragment : BaseFragment<BaseViewModel, FragmentFrontpageBinding>() {
 
 
-
-
     override fun initView(savedInstanceState: Bundle?) {
 
         mBind.btStart.clickNoRepeat {
-            showEmptyUi("测试1")
+            "".warningToast();
         }
 
     }
