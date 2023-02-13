@@ -103,5 +103,17 @@ class InitToast : Task(TASK_ID, false) {
 }
 
 
+//初始化Utils
+class InitToast : Task(TASK_ID, false) {
+    companion object {
+        const val TASK_ID = "4"
+    }
+
+    override fun run(name: String) {
+
+    }
+}
+
+
 
 
