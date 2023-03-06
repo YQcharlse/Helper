@@ -1,7 +1,7 @@
 package com.helper.ext
 
 import com.helper.util.XLog
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
 
 
 fun Any?.logV(tag: String? = null) =
@@ -23,5 +23,5 @@ fun String?.logJson(tag: String? = null) =
     XLog.logXmlOrJson(XLog.JSON, tag, XLog.STACK_TRACE_INDEX_7, this)
 
 fun String?.toast() {
-    ToastUtils.show(this)
+    Toaster.show(this)
 }

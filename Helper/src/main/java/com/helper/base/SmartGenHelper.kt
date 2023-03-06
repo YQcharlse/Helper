@@ -8,7 +8,7 @@ import com.helper.state.BaseErrorCallback
 import com.helper.state.BaseLoadingCallback
 import com.helper.util.KtxActivityLifecycleCallbacks
 import com.helper.util.SmartGenHelperLog
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
 import com.kingja.loadsir.callback.SuccessCallback
 import com.kingja.loadsir.core.LoadSir
 
@@ -46,8 +46,8 @@ object SmartGenHelper {
             .commit()
 
         //初始化吐司 这个吐司必须要主线程中初始化
-        ToastUtils.init(app)
-        ToastUtils.setGravity(Gravity.BOTTOM, 0, 100.dp)
+        Toaster.init(app)
+        Toaster.setGravity(Gravity.BOTTOM, 0, 100.dp)
     }
 
 }

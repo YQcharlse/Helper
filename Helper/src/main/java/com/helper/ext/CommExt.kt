@@ -19,7 +19,7 @@ import com.google.gson.Gson
 import com.helper.R
 import com.helper.base.appContext
 import com.hjq.gson.factory.GsonFactory
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
 
 
 val gson: Gson by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { GsonFactory.getSingletonGson() }
@@ -29,17 +29,17 @@ fun Any?.toJsonStr(): String {
 }
 
 fun Any?.toast() {
-    ToastUtils.show(this)
+    Toaster.show(this)
 }
 
 fun Any?.successToast() {
-    ToastUtils.setView(R.layout.layout_success_toast)
-    ToastUtils.show(this)
+    Toaster.setView(R.layout.layout_success_toast)
+    Toaster.show(this)
 }
 
 fun Any?.warningToast() {
-    ToastUtils.setView(R.layout.layout_warning_toast)
-    ToastUtils.show(this)
+    Toaster.setView(R.layout.layout_warning_toast)
+    Toaster.show(this)
 }
 
 /**

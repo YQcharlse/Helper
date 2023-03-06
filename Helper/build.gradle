@@ -58,7 +58,7 @@ dependencies {
     //利用liveData发送消息
     api 'com.kunminx.arch:unpeek-livedata:7.6.0'
     // 吐司框架：https://github.com/getActivity/ToastUtils
-    api 'com.github.getActivity:ToastUtils:11.2'
+    api 'com.github.getActivity:Toaster:12.0'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
     //启动优化异步加载 https://github.com/DSAppTeam/Anchors
@@ -67,9 +67,9 @@ dependencies {
     api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
     api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
 
-//    //管理界面状态 https://github.com/KingJA/LoadSir 停止
-//    api "com.kingja.loadsir:loadsir:1.3.8"
-//    
+    //管理界面状态 https://github.com/KingJA/LoadSir 停止
+    api "com.kingja.loadsir:loadsir:1.3.8"
+
 
     //rxHttp https://github.com/liujingxing/rxhttp
     api 'com.squareup.okhttp3:okhttp:4.10.0'

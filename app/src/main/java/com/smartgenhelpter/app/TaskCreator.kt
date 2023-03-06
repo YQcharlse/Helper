@@ -1,18 +1,10 @@
 package com.smartgenhelpter.app
 
-import android.view.Gravity
 import com.effective.android.anchors.task.Task
 import com.effective.android.anchors.task.TaskCreator
 import com.effective.android.anchors.task.project.Project
 import com.helper.base.appContext
-import com.helper.ext.dp
-import com.helper.state.BaseEmptyCallback
-import com.helper.state.BaseErrorCallback
-import com.helper.state.BaseLoadingCallback
 import com.hjq.language.MultiLanguages
-import com.hjq.toast.ToastUtils
-import com.kingja.loadsir.callback.SuccessCallback
-import com.kingja.loadsir.core.LoadSir
 import com.smartgenhelpter.app.api.NetHttpClient
 import com.tencent.mmkv.MMKV
 import rxhttp.RxHttpPlugins
