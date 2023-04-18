@@ -81,7 +81,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.3'
+                version = '1.2.4'
             }
         }
     }
