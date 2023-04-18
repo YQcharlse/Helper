@@ -7,12 +7,11 @@ import androidx.databinding.ViewDataBinding
 import com.helper.ext.inflateBinding
 
 /**
- * @Author smart_yq
- * @Date 2021-11-03
+ * Author smart_yq
+ * Date 2021-11-03
  * 描述　:
  */
-abstract class BaseDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmFragment<VM>(),
-    BaseIView {
+abstract class BaseDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmFragment<VM>(), BaseIView {
 
     //使用了 DataBinding 就不需要 layoutId了，因为 会从 VB 泛型 找到相关的view
     override val layoutId: Int = 0

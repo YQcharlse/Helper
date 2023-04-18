@@ -22,17 +22,6 @@ import com.smartgenhelpter.ui.login.viewmodel.LoginViewModel
 class InformationActivity : BaseActivity<LoginViewModel, ActivityInformationBinding>() {
 
 
-    override fun initObserver() {
-
-        mToolbar.initBack(
-            leftIcon = R.drawable.ic_back,
-            rightStr = "",
-            onLeftClick = { finish() }, onRightClick = {})
-
-    }
-
-
-
     override fun initView(savedInstanceState: Bundle?) {
 
         mBind.etInfoUsername.addTextChangedListener(object : TextWatcher {

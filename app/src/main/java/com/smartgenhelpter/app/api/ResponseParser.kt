@@ -6,6 +6,7 @@ import rxhttp.wrapper.entity.ParameterizedTypeImpl
 import rxhttp.wrapper.exception.ParseException
 import rxhttp.wrapper.parse.TypeParser
 import rxhttp.wrapper.utils.convert
+import rxhttp.wrapper.utils.convertTo
 import java.io.IOException
 import java.lang.reflect.Type
 
@@ -38,8 +39,7 @@ open class ResponseParser<T> : TypeParser<T> {
 
     @Throws(IOException::class)
     override fun onParse(response: okhttp3.Response): T {
-        val type: Type = ParameterizedTypeImpl.get(ApiResponse::class.java, *types)//获取泛型类型
-        val data: ApiResponse<T> = response.convert(type)
+        val data: ApiResponse<T> = response.convertTo(ApiResponse::class, *types)
         var t = data.data //获取data字段
 
         /*
@@ -47,7 +47,7 @@ open class ResponseParser<T> : TypeParser<T> {
          * 此时code正确，但是data字段为空，直接返回data的话，会报空指针错误，
          * 所以，判断泛型为 String 或者 Any 类型时，重新赋值，并确保赋值不为null
          */
-        if (t == null && types == String::class.java || t == null && types == Any::class.java) {
+        if (t == null && types[0] == String::class.java || t == null && types[0] == Any::class.java) {
             t = "" as T
         }
 

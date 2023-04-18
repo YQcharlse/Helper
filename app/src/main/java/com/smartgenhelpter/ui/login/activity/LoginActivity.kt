@@ -23,7 +23,10 @@ import com.smartgenhelpter.ui.widget.view.PopupBottomView
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
 
-    override fun initObserver() {
+
+
+    override fun initView(savedInstanceState: Bundle?) {
+
 
         mToolbar.initBack(rightStr = "", rightIcon = null, onLeftClick = {}, onRightClick = {})
 
@@ -33,10 +36,6 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
             .addView(mBind.retLoginUsername)
             .setMain(mBind.btLogin)
             .build()
-
-    }
-
-    override fun initView(savedInstanceState: Bundle?) {
 
         mBind.viewModel = mViewModel
         mBind.click = LoginClickProxy()

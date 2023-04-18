@@ -5,19 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.helper.R
 import com.helper.ext.*
 import com.helper.net.LoadStatusEntity
 import com.helper.net.LoadingDialogEntity
 import com.helper.net.LoadingType
-import com.helper.state.BaseEmptyCallback
-import com.helper.state.BaseErrorCallback
-import com.helper.state.BaseLoadingCallback
-import com.kingja.loadsir.core.LoadService
-import com.kingja.loadsir.core.LoadSir
 
 
 /**
@@ -25,19 +19,17 @@ import com.kingja.loadsir.core.LoadSir
  * @Date 2021-11-03
  * 描述　:
  */
-abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIView {
+abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIView {
+
+    abstract val layoutId: Int
 
     private var dataBindView: View? = null
-
-    //界面状态管理者
-    lateinit var uiStatusManger: LoadService<*>
 
     //当前Activity绑定的 ViewModel
     lateinit var mViewModel: VM
 
     //toolbar 这个可替换成自己想要的标题栏
     private var mTitleBarView: View? = null
-
 
     /** 状态栏沉浸  */
     private var mImmersionBar: ImmersionBar? = null
@@ -46,22 +38,21 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
         overridePendingTransition(R.anim.right_in_activity, R.anim.right_out_activity)
-        javaClass.simpleName.logD()
         //生成ViewModel
         mViewModel = createViewModel()
-        //初始化 status View
-        initStatusView(savedInstanceState)
-        //注册界面响应事件
+        javaClass.simpleName.logD()
         addLoadingUiChange(mViewModel)
-        //初始化绑定observer
-        initObserver()
+        //初始化 status View
+        initStatusView()
+        //注册界面响应事件
+        initView(savedInstanceState)
         //初始化请求成功方法
         onRequestSuccess()
         //初始化绑定点击方法
         onBindViewClick()
     }
 
-    private fun initStatusView(savedInstanceState: Bundle?) {
+    private fun initStatusView() {
         mTitleBarView = getTitleBarView()
         dataBindView = initViewDataBind()
         mTitleBarView?.let {
@@ -73,14 +64,6 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
         findViewById<FrameLayout>(R.id.baseContentView).addView(
             if (dataBindView == null) LayoutInflater.from(this).inflate(layoutId, null) else dataBindView
         )
-        uiStatusManger = LoadSir.getDefault()
-            .register(if (getLoadingView() == null) findViewById<FrameLayout>(R.id.baseContentView) else getLoadingView()!!) {
-                onLoadRetry()
-            }
-
-        findViewById<FrameLayout>(R.id.baseContentView).post {
-            initView(savedInstanceState)
-        }
     }
 
     /**
@@ -88,25 +71,6 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
      */
     abstract fun initView(savedInstanceState: Bundle?)
 
-    /**
-     * 已创建View 执行在 initView 之前，
-     * @param savedInstanceState Bundle?
-     */
-    open fun onCreatedView(savedInstanceState: Bundle?) {
-
-    }
-
-    /**
-     * 创建观察者
-     */
-    open fun initObserver() {}
-
-    /**
-     * 创建viewModel
-     */
-    private fun createViewModel(): VM {
-        return ViewModelProvider(this).get(getVmClazz(this))
-    }
 
     /**
      * 是否隐藏 标题栏 默认显示
@@ -183,36 +147,14 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
                             dismissCustomLoading(it)
                         }
                     }
-                    LoadingType.LOADING_XML -> {
-                        if (it.isShow) {
-                            showLoadingUi()
-                        }
-                    }
                 }
-            }
-            showEmpty.observe(this@BaseVmActivity) {
-                onRequestEmpty(it)
             }
             showError.observe(this@BaseVmActivity) {
-                //如果请求错误 并且loading类型为 xml 那么控制界面显示为错误布局
-                if (it.loadingType == LoadingType.LOADING_XML) {
-                    showErrorUi()
-                }
                 onRequestError(it)
-            }
-            showSuccess.observe(this@BaseVmActivity) {
-                showSuccessUi()
             }
         }
     }
 
-    /**
-     * 请求列表数据为空时 回调
-     * @param loadStatus LoadStatusEntity
-     */
-    override fun onRequestEmpty(loadStatus: LoadStatusEntity) {
-        showEmptyUi()
-    }
 
     /**
      * 请求接口失败回调，如果界面有请求接口，需要处理错误业务，请实现它 如果不实现那么 默认吐司错误消息
@@ -226,51 +168,6 @@ abstract class BaseVmActivity<VM : BaseViewModel> : BaseInitActivity(), BaseIVie
      * 请求成功的回调放在这里面 没干啥就是取了个名字，到时候好找
      */
     override fun onRequestSuccess() {}
-
-    /**
-     * 空界面，错误界面 点击重试时触发的方法，如果有使用 状态布局的话，一般子类都要实现
-     */
-    override fun onLoadRetry() {}
-
-    /**
-     * 显示 成功状态界面
-     */
-    override fun showSuccessUi() {
-        uiStatusManger.showSuccess()
-    }
-
-    /**
-     * 显示 错误 状态界面
-     * @param errMessage String
-     */
-    override fun showErrorUi() {
-        uiStatusManger.showCallback(BaseErrorCallback::class.java)
-    }
-
-    /**
-     * 显示 空数据 状态界面
-     */
-    override fun showEmptyUi() {
-        uiStatusManger.showCallback(BaseEmptyCallback::class.java)
-    }
-
-    /**
-     * 显示 空数据 状态界面
-     * emptyMessage 提示信息
-     */
-    override fun showEmptyUi(emptyMessage: String) {
-        uiStatusManger.setCallBack(BaseEmptyCallback()::class.java) { context, view ->
-            view.findViewById<TextView>(R.id.tv_empty_text).text = emptyMessage
-        }
-        uiStatusManger.showCallback(BaseEmptyCallback::class.java)
-    }
-
-    /**
-     * 显示 loading 状态界面
-     */
-    override fun showLoadingUi() {
-        uiStatusManger.showCallback(BaseLoadingCallback::class.java)
-    }
 
     /**
      * 显示自定义loading 在请求时 设置 loadingType类型为LOADING_CUSTOM 时才有效 可以根据setting中的requestCode判断

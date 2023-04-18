@@ -5,20 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
-import com.helper.R
 import com.helper.ext.*
 import com.helper.net.LoadStatusEntity
 import com.helper.net.LoadingDialogEntity
 import com.helper.net.LoadingType
-import com.helper.state.BaseEmptyCallback
-import com.helper.state.BaseErrorCallback
-import com.helper.state.BaseLoadingCallback
-import com.kingja.loadsir.core.LoadService
-import com.kingja.loadsir.core.LoadSir
 
 
 /**
@@ -26,12 +19,11 @@ import com.kingja.loadsir.core.LoadSir
  * @Date 2021-11-03
  * 描述　:
  */
-abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIView {
+abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
+
+    abstract val layoutId: Int
 
     private var dataBindView: View? = null
-
-    //界面状态管理者
-    lateinit var uiStatusManger: LoadService<*>
 
     //是否第一次加载
     private var isFirst: Boolean = true
@@ -55,15 +47,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
         } else {
             dataBindView
         }
-        return if (getLoadingView() == null) {
-            uiStatusManger = LoadSir.getDefault().register(rootView) {
-                onLoadRetry()
-            }
-            container?.removeView(uiStatusManger.loadLayout)
-            uiStatusManger.loadLayout
-        } else {
-            rootView
-        }
+        return rootView
     }
 
     override fun onAttach(context: Context) {
@@ -76,38 +60,19 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
         mViewModel = createViewModel()
         initStatusView(view, savedInstanceState)
         addLoadingUiChange(mViewModel)
+        //view加载完成后执行
+        onBindViewClick()
         initObserver()
         onRequestSuccess()
-        onBindViewClick()
     }
 
     private fun initStatusView(view: View, savedInstanceState: Bundle?) {
-        getLoadingView()?.let {
-            //如果传入了自定义包裹view 将该view注册 做 空 错误 loading 布局处理
-            uiStatusManger = LoadSir.getDefault().register(it) {
-                onLoadRetry()
-            }
-        }
         //view加载完成后执行
         view.post {
             initView(savedInstanceState)
         }
     }
 
-    /**
-     * 已创建View 执行在 initView 之前，
-     * @param savedInstanceState Bundle?
-     */
-    open fun onCreatedView(savedInstanceState: Bundle?) {
-
-    }
-
-    /**
-     * 创建viewModel
-     */
-    private fun createViewModel(): VM {
-        return ViewModelProvider(this).get(getVmClazz(this))
-    }
 
     /**
      * 初始化view操作  这个方法会有延迟，因为使用了LoadSir，需要等待LoadSir注册完成后才能执行
@@ -142,14 +107,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
     }
 
     /**
-     * 子类可传入需要被包裹的View，做状态显示-空、错误、加载
-     * 如果子类不覆盖该方法 那么会将整个当前Fragment界面都当做View包裹
-     */
-    override fun getLoadingView(): View? {
-        return null
-    }
-
-    /**
      * 点击事件方法 配合setOnclick()拓展函数调用，做到黄油刀类似的点击事件
      */
     open fun onBindViewClick() {}
@@ -159,7 +116,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
      */
     fun addLoadingUiChange(viewModel: BaseViewModel) {
         viewModel.loadingChange.run {
-            loading.observe(this@BaseVmFragment) {
+            loading.observe(viewLifecycleOwner) {
                 when (it.loadingType) {
                     //通用弹窗Dialog
                     LoadingType.LOADING_DIALOG -> {
@@ -177,39 +134,16 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
                             dismissCustomLoading(it)
                         }
                     }
-                    //请求时 xml显示 loading
-                    LoadingType.LOADING_XML -> {
-                        if (it.isShow) {
-                            showLoadingUi()
-                        }
-                    }
                 }
-            }
-            //当分页列表数据第一页返回空数据时 显示空布局
-            showEmpty.observe(this@BaseVmFragment) {
-                onRequestEmpty(it)
             }
             //当请求失败时
-            showError.observe(this@BaseVmFragment) {
-                if (it.loadingType == LoadingType.LOADING_XML) {
-                    showErrorUi()
-                }
+            showError.observe(viewLifecycleOwner) {
                 onRequestError(it)
             }
-            //如果是 LoadingType.LOADING_XML，当请求成功时 会显示正常的成功布局
-            showSuccess.observe(this@BaseVmFragment) {
-                showSuccessUi()
-            }
+
         }
     }
 
-    /**
-     * 请求列表数据为空时 回调
-     * @param loadStatus LoadStatusEntity
-     */
-    override fun onRequestEmpty(loadStatus: LoadStatusEntity) {
-        showEmptyUi()
-    }
 
     /**
      * 请求接口失败回调，如果界面有请求接口，需要处理错误业务，请实现它 如果不实现那么 默认吐司错误消息
@@ -224,51 +158,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseInitFragment(), BaseIVie
      */
     override fun onRequestSuccess() {
 
-    }
-
-    /**
-     * 空界面，错误界面 点击重试时触发的方法，如果有使用 状态布局的话，一般子类都要实现
-     */
-    override fun onLoadRetry() {}
-
-    /**
-     * 显示 成功状态界面
-     */
-    override fun showSuccessUi() {
-        uiStatusManger.showSuccess()
-    }
-
-    /**
-     * 显示 错误 状态界面
-     * @param errMessage String
-     */
-    override fun showErrorUi() {
-        uiStatusManger.showCallback(BaseErrorCallback::class.java)
-    }
-
-    /**
-     * 显示 空数据 状态界面
-     */
-    override fun showEmptyUi() {
-        uiStatusManger.showCallback(BaseEmptyCallback::class.java)
-    }
-
-    /**
-     * 显示 空数据 状态界面
-     * emptyMessage 提示信息
-     */
-    override fun showEmptyUi(emptyMessage: String) {
-        uiStatusManger.setCallBack(BaseEmptyCallback()::class.java) { context, view ->
-            view.findViewById<TextView>(R.id.tv_empty_text).text = emptyMessage
-        }
-        uiStatusManger.showCallback(BaseEmptyCallback::class.java)
-    }
-
-    /**
-     * 显示 loading 状态界面
-     */
-    override fun showLoadingUi() {
-        uiStatusManger.showCallback(BaseLoadingCallback::class.java)
     }
 
     /**

@@ -10,8 +10,7 @@ import com.noober.background.BackgroundLibrary
  * @Date 2021-11-03
  * 描述　:
  */
-abstract class BaseDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmActivity<VM>(),
-    BaseIView {
+abstract class BaseDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmActivity<VM>(), BaseIView {
 
     //使用了DataBinding 就不需要 layoutId了，因为 会从DB泛型 找到相关的view
     override val layoutId: Int = 0

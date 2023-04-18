@@ -19,8 +19,10 @@ import com.smartgenhelpter.ui.login.viewmodel.LoginViewModel
 
 class RegisterActivity : BaseActivity<LoginViewModel, ActivityRegisterBinding>() {
 
-    override fun initObserver() {
-        super.initObserver()
+
+
+
+    override fun initView(savedInstanceState: Bundle?) {
 
 
         mToolbar.initBack(
@@ -37,10 +39,6 @@ class RegisterActivity : BaseActivity<LoginViewModel, ActivityRegisterBinding>()
             .addView(mBind.etRegNewPassword)
             .setMain(mBind.btReg)
             .build()
-    }
-
-
-    override fun initView(savedInstanceState: Bundle?) {
 
         mBind.viewModel = mViewModel
         mBind.click = RegisterClickProxy()
