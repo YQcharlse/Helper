@@ -2,6 +2,8 @@ package com.helper.base
 
 import android.app.Application
 import android.view.Gravity
+import com.drake.statelayout.StateConfig
+import com.helper.R
 import com.helper.ext.dp
 import com.helper.util.KtxActivityLifecycleCallbacks
 import com.helper.util.SmartGenHelperLog
@@ -31,6 +33,8 @@ object SmartGenHelper {
         SmartGenHelperLog = debug
         //注册全局 activity生命周期监听
         application.registerActivityLifecycleCallbacks(KtxActivityLifecycleCallbacks())
+
+        StateConfig.setRetryIds(R.id.state_empty_linear)
 
         //初始化吐司 这个吐司必须要主线程中初始化
         Toaster.init(app)

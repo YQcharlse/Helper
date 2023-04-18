@@ -70,7 +70,7 @@ dependencies {
     // Gson 解析容错：https://github.com/getActivity/GsonFactory
     api 'com.github.getActivity:GsonFactory:6.5'
 
-
+    api 'com.github.liangjingkanji:StateLayout:1.4.1'
 }
 
 afterEvaluate {
