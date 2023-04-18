@@ -34,7 +34,10 @@ object SmartGenHelper {
         //注册全局 activity生命周期监听
         application.registerActivityLifecycleCallbacks(KtxActivityLifecycleCallbacks())
 
-        StateConfig.setRetryIds(R.id.state_empty_linear)
+        StateConfig.apply {
+            emptyLayout = R.layout.layout_empty
+            setRetryIds(R.id.state_empty_linear)
+        }
 
         //初始化吐司 这个吐司必须要主线程中初始化
         Toaster.init(app)

@@ -38,10 +38,6 @@ fun BaseViewModel.rxHttpRequest(requestDslClass: HttpRequestDsl.() -> Unit): Job
             // 携程体方法执行工作 默认是在主线程中运行的，如果有耗时操作，需要自己切换线程 ，当然请求的话RxHttp内部做了处理的，不需要额外操作
             httpRequestDsl.onRequest.invoke(this)
         }.onSuccess {
-            //请求完成 走到这里说明请求成功了 如果请求类型为LOADING_XML 那么通知Activity/Fragment展示success 界面
-            if (httpRequestDsl.loadingType == LoadingType.LOADING_XML) {
-                loadingChange.showSuccess.value = true
-            }
             //结束loading
             if (httpRequestDsl.loadingType != LoadingType.LOADING_NULL) {
                 loadingChange.loading.value = LoadingDialogEntity(
@@ -133,10 +129,6 @@ fun <T> BaseViewModel.rxHttpRequestCallBack(requestDslClass: HttpRequestCallBack
             // 携程体方法执行工作 默认是在主线程中运行的，如果有耗时操作，需要切换线程 ，当然请求的话RxHttp内部做了处理的，不需要额外操作
             httpRequestDsl.onRequest.invoke(this)
         }.onSuccess {
-            //请求完成 走到这里说明请求成功了 如果请求类型为LOADING_XML 那么通知Activity/Fragment展示success 界面
-            if (httpRequestDsl.loadingType == LoadingType.LOADING_XML) {
-                loadingChange.showSuccess.value = true
-            }
             //结束loading
             if (httpRequestDsl.loadingType != LoadingType.LOADING_NULL) {
                 loadingChange.loading.value = LoadingDialogEntity(

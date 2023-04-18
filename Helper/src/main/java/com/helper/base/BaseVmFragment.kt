@@ -5,9 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import com.drake.statelayout.StateLayout
+import com.drake.statelayout.Status
+import com.drake.statelayout.stateCreate
+import com.helper.R
 import com.helper.ext.*
 import com.helper.net.LoadStatusEntity
 import com.helper.net.LoadingDialogEntity
@@ -34,11 +39,10 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
     //父类activity
     lateinit var mActivity: AppCompatActivity
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    //界面管理
+    lateinit var uiStatus: StateLayout
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         isFirst = true
         javaClass.simpleName.logD()
         dataBindView = initViewDataBind(inflater, container)
@@ -61,6 +65,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
         initStatusView(view, savedInstanceState)
         addLoadingUiChange(mViewModel)
         //view加载完成后执行
+        initView(savedInstanceState)
         onBindViewClick()
         initObserver()
         onRequestSuccess()
@@ -69,7 +74,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
     private fun initStatusView(view: View, savedInstanceState: Bundle?) {
         //view加载完成后执行
         view.post {
-            initView(savedInstanceState)
+            uiStatus = view.stateCreate()
         }
     }
 
@@ -136,12 +141,29 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
                     }
                 }
             }
+            //当分页列表数据第一页返回空数据时 显示空布局
+            showEmpty.observe(viewLifecycleOwner) {
+                onRequestEmpty(it)
+            }
             //当请求失败时
             showError.observe(viewLifecycleOwner) {
                 onRequestError(it)
             }
-
+            showSuccess.observe(viewLifecycleOwner) {
+                if (uiStatus.status == Status.LOADING) {
+                    showSuccessUi()
+                }
+            }
         }
+    }
+
+
+    /**
+     * 请求列表数据为空时 回调
+     * @param loadStatus LoadStatusEntity
+     */
+    override fun onRequestEmpty(loadStatus: LoadStatusEntity) {
+        showEmptyUi()
     }
 
 
@@ -158,6 +180,24 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
      */
     override fun onRequestSuccess() {
 
+    }
+
+    /**
+     * 显示 成功状态界面
+     */
+    override fun showSuccessUi() {
+        uiStatus.showContent()
+    }
+
+    /**
+     * 显示 空数据 状态界面
+     */
+    override fun showEmptyUi(message: String) {
+        uiStatus.showEmpty().apply {
+            if (message.isNotBlank()) {
+                uiStatus.findViewById<TextView>(R.id.tv_empty_text).text = message
+            }
+        }
     }
 
     /**

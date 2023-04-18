@@ -12,7 +12,7 @@ import com.helper.base.BaseViewModel
  */
 abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseDbFragment<VM, DB>() {
 
-    //需要自定义修改什么就重写什么 具体方法可以 搜索 BaseIView 查看
+
     //需要自定义修改什么就重写什么 具体方法可以 搜索 BaseIView 查看
     override fun onResume() {
         super.onResume()

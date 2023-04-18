@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.drake.statelayout.StateLayout
+import com.drake.statelayout.Status
 import com.gyf.immersionbar.ImmersionBar
 import com.helper.R
 import com.helper.ext.*
@@ -30,6 +33,8 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIVi
 
     //toolbar 这个可替换成自己想要的标题栏
     private var mTitleBarView: View? = null
+
+    lateinit var uiStatus: StateLayout
 
     /** 状态栏沉浸  */
     private var mImmersionBar: ImmersionBar? = null
@@ -61,6 +66,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIVi
             it.visibleOrGone(showToolBar())
         }
         initImmersionBar()
+        uiStatus = findViewById(R.id.baseStateView)
         findViewById<FrameLayout>(R.id.baseContentView).addView(
             if (dataBindView == null) LayoutInflater.from(this).inflate(layoutId, null) else dataBindView
         )
@@ -149,12 +155,39 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIVi
                     }
                 }
             }
+            showEmpty.observe(this@BaseVmActivity) {
+                onRequestEmpty(it)
+            }
             showError.observe(this@BaseVmActivity) {
                 onRequestError(it)
+            }
+            showSuccess.observe(this@BaseVmActivity){
+                if (uiStatus.status == Status.LOADING){
+                    showSuccessUi()
+                }
             }
         }
     }
 
+    /**
+     * 请求列表数据为空时 回调
+     * @param loadStatus LoadStatusEntity
+     */
+    override fun onRequestEmpty(loadStatus: LoadStatusEntity) {
+        showEmptyUi()
+    }
+
+    override fun showSuccessUi() {
+        uiStatus.showContent()
+    }
+
+    override fun showEmptyUi(message: String) {
+        uiStatus.showEmpty().apply {
+            if (message.isNotBlank()) {
+                findViewById<TextView>(R.id.tv_empty_text).text = message
+            }
+        }
+    }
 
     /**
      * 请求接口失败回调，如果界面有请求接口，需要处理错误业务，请实现它 如果不实现那么 默认吐司错误消息

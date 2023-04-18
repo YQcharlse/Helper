@@ -11,6 +11,7 @@ import com.helper.net.LoadingDialogEntity
  */
 interface BaseIView {
 
+
     /**
      * 子类可传入自己的标题栏 不给默认是null
      * @return View?
@@ -20,9 +21,26 @@ interface BaseIView {
     }
 
     /**
+     * 展示加载中界面
+     */
+    fun showEmptyUi(message: String = "")
+
+
+    /**
+     * 界面显示加载成功
+     */
+    fun showSuccessUi()
+
+    /**
      * 请求成功
      */
     fun onRequestSuccess()
+
+    /**
+     * 请求数据为空时 在 ResponseParser 中判断了如果是列表数据，是第一页，且没有数据时 回调这个方法
+     * @param loadStatus LoadStatusEntity
+     */
+    fun onRequestEmpty(loadStatus: LoadStatusEntity)
 
     /**
      * 请求失败

@@ -3,11 +3,8 @@ package com.smartgenhelpter.ui.main.fragment
 import android.os.Bundle
 import com.helper.base.BaseViewModel
 import com.helper.ext.clickNoRepeat
-import com.helper.ext.toStartActivity
-import com.helper.ext.warningToast
 import com.smartgenhelpter.app.base.BaseFragment
 import com.smartgenhelpter.databinding.FragmentFrontpageBinding
-import com.smartgenhelpter.ui.login.activity.LoginActivity
 
 /**
  * @Author smart_yq
@@ -20,7 +17,6 @@ class FrontPageFragment : BaseFragment<BaseViewModel, FragmentFrontpageBinding>(
     override fun initView(savedInstanceState: Bundle?) {
 
         mBind.btStart.clickNoRepeat {
-            "".warningToast();
         }
 
     }

@@ -8,6 +8,7 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import com.drake.statelayout.StateConfig
 import com.helper.ext.getColorExt
 import com.helper.ext.getStringExt
 import com.helper.ext.isEqualStr
@@ -24,12 +25,8 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
 
 
-
     override fun initView(savedInstanceState: Bundle?) {
-
-
-        mToolbar.initBack(rightStr = "", rightIcon = null, onLeftClick = {}, onRightClick = {})
-
+        mToolbar.initBack(rightStr = "测试", rightIcon = null, onLeftClick = {}, onRightClick = {})
 
         com.smartgenhelpter.app.manage.InputTextManager.with(this)
             .addView(mBind.retLoginPassword)
@@ -58,6 +55,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
         }
 
     }
+
 
 
     inner class LoginClickProxy {
@@ -91,7 +89,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
         //登录
         fun login() {
-
+            showEmptyUi()
         }
 
         //协议
