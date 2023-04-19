@@ -36,6 +36,12 @@ interface BaseIView {
      */
     fun onRequestSuccess()
 
+
+    /**
+     * 当界面是错误界面，空界面时，点击触发重试
+     */
+    fun onLoadRetry()
+
     /**
      * 请求数据为空时 在 ResponseParser 中判断了如果是列表数据，是第一页，且没有数据时 回调这个方法
      * @param loadStatus LoadStatusEntity

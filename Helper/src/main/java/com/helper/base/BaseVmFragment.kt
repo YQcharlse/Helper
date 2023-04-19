@@ -51,8 +51,15 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
         } else {
             dataBindView
         }
+        rootView!!.post {
+            uiStatus = rootView.stateCreate()
+            uiStatus.clickNoRepeat {
+                onLoadRetry()
+            }
+        }
         return rootView
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -62,20 +69,12 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mViewModel = createViewModel()
-        initStatusView(view, savedInstanceState)
         addLoadingUiChange(mViewModel)
         //view加载完成后执行
         initView(savedInstanceState)
         onBindViewClick()
         initObserver()
         onRequestSuccess()
-    }
-
-    private fun initStatusView(view: View, savedInstanceState: Bundle?) {
-        //view加载完成后执行
-        view.post {
-            uiStatus = view.stateCreate()
-        }
     }
 
 
@@ -181,6 +180,12 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
     override fun onRequestSuccess() {
 
     }
+
+
+    /**
+     * 空界面，错误界面 点击重试时触发的方法，如果有使用 状态布局的话，一般子类都要实现
+     */
+    override fun onLoadRetry() {}
 
     /**
      * 显示 成功状态界面

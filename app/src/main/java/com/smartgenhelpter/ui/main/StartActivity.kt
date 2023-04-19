@@ -3,6 +3,7 @@ package com.smartgenhelpter.ui.main
 import android.os.Bundle
 import android.os.CountDownTimer
 import com.helper.base.BaseViewModel
+import com.helper.ext.countDownCoroutines
 import com.helper.ext.finishAllActivity
 import com.helper.ext.getStringExt
 import com.helper.ext.toStartActivity
@@ -31,8 +32,9 @@ class StartActivity : BaseActivity<BaseViewModel, ActivityStartBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
 
 
+
         //显示广告图片，开始倒计时
-        mDownTimer = object : CountDownTimer(3000, 1000) {
+        mDownTimer = object : CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
             }
 

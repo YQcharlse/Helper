@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="helper_loading_net_error">請檢查網絡後點擊重試</string>
     <string name="helper_loading_net_empty">點擊重試</string>
-    <string name="helper_loading_error_tip">數據獲取失敗</string>
     <string name="helper_loading_empty_tip">暫時沒有數據</string>
-
-
 
     <string name="helper_net_error_no">當前無網絡，請檢查你的網絡設置</string>
     <string name="helper_net_error_timeout">連接超時,請稍後再試</string>

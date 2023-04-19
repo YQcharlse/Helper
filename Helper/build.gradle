@@ -64,7 +64,7 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:4.10.0'
     api 'com.github.liujingxing.rxhttp:rxhttp:3.0.2'
     // 标题栏框架：https://github.com/getActivity/TitleBar
-    api 'com.github.getActivity:TitleBar:10.2'
+    api 'com.github.getActivity:TitleBar:10.3'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.6'
     // Gson 解析容错：https://github.com/getActivity/GsonFactory

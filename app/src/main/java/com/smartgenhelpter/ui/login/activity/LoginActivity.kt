@@ -12,6 +12,7 @@ import com.drake.statelayout.StateConfig
 import com.helper.ext.getColorExt
 import com.helper.ext.getStringExt
 import com.helper.ext.isEqualStr
+import com.helper.ext.toast
 import com.lxj.xpopup.XPopup
 import com.smartgenhelpter.R
 import com.smartgenhelpter.app.base.BaseActivity
@@ -56,6 +57,11 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     }
 
+
+    override fun onLoadRetry() {
+
+        "1".toast()
+    }
 
 
     inner class LoginClickProxy {

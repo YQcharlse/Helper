@@ -67,6 +67,9 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIVi
         }
         initImmersionBar()
         uiStatus = findViewById(R.id.baseStateView)
+        uiStatus.clickNoRepeat {
+            onLoadRetry()
+        }
         findViewById<FrameLayout>(R.id.baseContentView).addView(
             if (dataBindView == null) LayoutInflater.from(this).inflate(layoutId, null) else dataBindView
         )
@@ -201,6 +204,12 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIVi
      * 请求成功的回调放在这里面 没干啥就是取了个名字，到时候好找
      */
     override fun onRequestSuccess() {}
+
+
+    /**
+     * 空界面，错误界面 点击重试时触发的方法，如果有使用 状态布局的话，一般子类都要实现
+     */
+    override fun onLoadRetry() {}
 
     /**
      * 显示自定义loading 在请求时 设置 loadingType类型为LOADING_CUSTOM 时才有效 可以根据setting中的requestCode判断

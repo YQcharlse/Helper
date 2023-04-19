@@ -36,7 +36,6 @@ object SmartGenHelper {
 
         StateConfig.apply {
             emptyLayout = R.layout.layout_empty
-            setRetryIds(R.id.state_empty_linear)
         }
 
         //初始化吐司 这个吐司必须要主线程中初始化
