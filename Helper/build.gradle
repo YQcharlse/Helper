@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 25
-        versionName "1.2.6"
+        versionCode 26
+        versionName "1.2.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -62,7 +62,7 @@ dependencies {
     api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
     //rxHttp https://github.com/liujingxing/rxhttp
     api 'com.squareup.okhttp3:okhttp:4.10.0'
-    api 'com.github.liujingxing.rxhttp:rxhttp:3.0.2'
+    api 'com.github.liujingxing.rxhttp:rxhttp:3.0.3'
     // 标题栏框架：https://github.com/getActivity/TitleBar
     api 'com.github.getActivity:TitleBar:10.3'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
@@ -81,7 +81,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.6'
+                version = '1.2.7'
             }
         }
     }

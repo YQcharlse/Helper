@@ -23,13 +23,6 @@
         android:textColor="@color/helperColorBlack464"
         android:textSize="@dimen/sp_14" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="@string/helper_loading_net_empty"
-        android:textColor="@color/helperColorBlack464"
-        android:textSize="@dimen/sp_14" />
 
 
 </LinearLayout>
