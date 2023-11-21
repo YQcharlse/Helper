@@ -67,9 +67,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity(), BaseIVi
         }
         initImmersionBar()
         uiStatus = findViewById(R.id.baseStateView)
-        uiStatus.clickNoRepeat {
-            onLoadRetry()
-        }
+
         findViewById<FrameLayout>(R.id.baseContentView).addView(
             if (dataBindView == null) LayoutInflater.from(this).inflate(layoutId, null) else dataBindView
         )

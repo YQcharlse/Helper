@@ -53,9 +53,6 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment(), BaseIView {
         }
         rootView!!.post {
             uiStatus = rootView.stateCreate()
-            uiStatus.clickNoRepeat {
-                onLoadRetry()
-            }
         }
         return rootView
     }

@@ -7,13 +7,13 @@ plugins {
 
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 26
-        versionName "1.2.7"
+        versionName "1.2.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -42,17 +42,17 @@ dependencies {
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     //lifecycle
-    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    api 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
-    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    api 'androidx.lifecycle:lifecycle-common-java8:2.6.1'
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     // viewModel
-    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     // liveData
-    api 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    api 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     //利用liveData发送消息
     api 'com.kunminx.arch:unpeek-livedata:7.8.0'
     // 吐司框架：https://github.com/getActivity/ToastUtils
-    api 'com.github.getActivity:Toaster:12.2'
+    api 'com.github.getActivity:Toaster:12.6'
     //log
     api 'com.github.liangjingkanji:LogCat:1.2.4'
     //启动优化异步加载 https://github.com/DSAppTeam/Anchors
@@ -62,15 +62,15 @@ dependencies {
     api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
     //rxHttp https://github.com/liujingxing/rxhttp
     api 'com.squareup.okhttp3:okhttp:4.10.0'
-    api 'com.github.liujingxing.rxhttp:rxhttp:3.0.3'
+    api 'com.github.liujingxing.rxhttp:rxhttp:3.0.6'
     // 标题栏框架：https://github.com/getActivity/TitleBar
-    api 'com.github.getActivity:TitleBar:10.3'
+    api 'com.github.getActivity:TitleBar:10.5'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.6'
     // Gson 解析容错：https://github.com/getActivity/GsonFactory
-    api 'com.github.getActivity:GsonFactory:6.5'
+    api 'com.github.getActivity:GsonFactory:9.0'
 
-    api 'com.github.liangjingkanji:StateLayout:1.4.1'
+    api 'com.github.liangjingkanji:StateLayout:1.4.2'
 }
 
 afterEvaluate {
@@ -81,7 +81,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.7'
+                version = '1.2.8'
             }
         }
     }
