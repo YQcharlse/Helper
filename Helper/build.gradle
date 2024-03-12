@@ -62,7 +62,7 @@ dependencies {
     api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
     //rxHttp https://github.com/liujingxing/rxhttp
     api 'com.squareup.okhttp3:okhttp:4.12.0'
-    api 'com.github.liujingxing.rxhttp:rxhttp:3.2.3'
+    api 'com.github.liujingxing.rxhttp:rxhttp:3.2.4'
     // 标题栏框架：https://github.com/getActivity/TitleBar
     api 'com.github.getActivity:TitleBar:10.5'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
