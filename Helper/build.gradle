@@ -62,13 +62,13 @@ dependencies {
     api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
     //rxHttp https://github.com/liujingxing/rxhttp
     api 'com.squareup.okhttp3:okhttp:4.12.0'
-    api 'com.github.liujingxing.rxhttp:rxhttp:3.2.3'
+    api 'com.github.liujingxing.rxhttp:rxhttp:3.2.4'
     // 标题栏框架：https://github.com/getActivity/TitleBar
     api 'com.github.getActivity:TitleBar:10.5'
     //通过标签直接生成shape，无需再写shape.xml  https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:library:1.7.6'
     // Gson 解析容错：https://github.com/getActivity/GsonFactory
-    api 'com.github.getActivity:GsonFactory:9.0'
+    api 'com.github.getActivity:GsonFactory:9.6'
 
     api 'com.github.liangjingkanji:StateLayout:1.4.2'
 }
@@ -81,7 +81,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.YQcharlse'
                 artifactId = 'Helper'
-                version = '1.2.8'
+                version = '1.2.9'
             }
         }
     }
